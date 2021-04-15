@@ -1,0 +1,11 @@
+C:\Users\Admin\source\repos\Session5\Lab5_1\bin\Debug\Lab5_1.exe.config
+C:\Users\Admin\source\repos\Session5\Lab5_1\bin\Debug\Lab5_1.exe
+C:\Users\Admin\source\repos\Session5\Lab5_1\bin\Debug\Lab5_1.pdb
+C:\Users\Admin\source\repos\Session5\Lab5_1\obj\Debug\Lab5_1.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\Session5\Lab5_1\obj\Debug\Lab5_1.frmEmployee.resources
+C:\Users\Admin\source\repos\Session5\Lab5_1\obj\Debug\Lab5_1.Properties.Resources.resources
+C:\Users\Admin\source\repos\Session5\Lab5_1\obj\Debug\Lab5_1.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\Session5\Lab5_1\obj\Debug\Lab5_1.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Session5\Lab5_1\obj\Debug\Lab5_1.exe
+C:\Users\Admin\source\repos\Session5\Lab5_1\obj\Debug\Lab5_1.pdb
+C:\Users\Admin\source\repos\Session5\Lab5_1\obj\Debug\Lab5_1.frmSearch.resources
