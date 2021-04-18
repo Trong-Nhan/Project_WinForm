@@ -10,3 +10,15 @@ C:\Users\Admin\source\repos\EndTermProject\Project_1\bin\Debug\Project_1.pdb
 C:\Users\Admin\source\repos\EndTermProject\Project_1\obj\Debug\Project_1.exe
 C:\Users\Admin\source\repos\EndTermProject\Project_1\obj\Debug\Project_1.pdb
 C:\Users\Admin\source\repos\EndTermProject\Project_1\obj\Debug\Project_1.frmTour.resources
+D:\GITHUB\Project-WinForm\Project_1\bin\Debug\Project_1.exe.config
+D:\GITHUB\Project-WinForm\Project_1\bin\Debug\Project_1.exe
+D:\GITHUB\Project-WinForm\Project_1\bin\Debug\Project_1.pdb
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.csprojAssemblyReference.cache
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.frmCustomer.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.frmSearch.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.frmTour.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.Properties.Resources.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.csproj.GenerateResource.cache
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.csproj.CoreCompileInputs.cache
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.exe
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.pdb

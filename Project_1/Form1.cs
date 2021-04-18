@@ -156,7 +156,7 @@ namespace Project_1
             var employess = from emp in hrm.Customers
                             select new
                             {
-                                Ma_nhan_vien = emp.CusId,
+                                Ma_khach_hang = emp.CusId,
                                 Ten = emp.CusName,
                                 Gioi_tinh = emp.Gender,
                                 Ngay_sinh = emp.Birthday,
