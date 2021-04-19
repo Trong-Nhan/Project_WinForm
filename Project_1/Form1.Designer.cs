@@ -67,41 +67,41 @@ namespace Project_1
             // 
             this.txtName.Location = new System.Drawing.Point(313, 22);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(153, 20);
+            this.txtName.Size = new System.Drawing.Size(238, 20);
             this.txtName.TabIndex = 1;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(379, 79);
+            this.txtEmail.Location = new System.Drawing.Point(468, 60);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(153, 20);
+            this.txtEmail.Size = new System.Drawing.Size(212, 20);
             this.txtEmail.TabIndex = 3;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(92, 136);
+            this.txtAddress.Location = new System.Drawing.Point(92, 103);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(440, 20);
+            this.txtAddress.Size = new System.Drawing.Size(232, 20);
             this.txtAddress.TabIndex = 4;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(92, 182);
+            this.txtPhone.Location = new System.Drawing.Point(507, 103);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(230, 20);
+            this.txtPhone.Size = new System.Drawing.Size(173, 20);
             this.txtPhone.TabIndex = 5;
             // 
             // txtBirthday
             // 
-            this.txtBirthday.Location = new System.Drawing.Point(92, 79);
+            this.txtBirthday.Location = new System.Drawing.Point(92, 60);
             this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.Size = new System.Drawing.Size(217, 20);
+            this.txtBirthday.Size = new System.Drawing.Size(232, 20);
             this.txtBirthday.TabIndex = 6;
             // 
             // chkSex
             // 
             this.chkSex.AutoSize = true;
-            this.chkSex.Location = new System.Drawing.Point(611, 81);
+            this.chkSex.Location = new System.Drawing.Point(803, 62);
             this.chkSex.Name = "chkSex";
             this.chkSex.Size = new System.Drawing.Size(48, 17);
             this.chkSex.TabIndex = 7;
@@ -111,15 +111,15 @@ namespace Project_1
             // cboTour
             // 
             this.cboTour.FormattingEnabled = true;
-            this.cboTour.Location = new System.Drawing.Point(549, 22);
+            this.cboTour.Location = new System.Drawing.Point(694, 21);
             this.cboTour.Name = "cboTour";
-            this.cboTour.Size = new System.Drawing.Size(153, 21);
+            this.cboTour.Size = new System.Drawing.Size(173, 21);
             this.cboTour.TabIndex = 8;
             this.cboTour.Click += new System.EventHandler(this.cboTour_Click);
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(35, 217);
+            this.btnNew.Location = new System.Drawing.Point(35, 141);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 9;
@@ -129,7 +129,7 @@ namespace Project_1
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(136, 217);
+            this.btnUpdate.Location = new System.Drawing.Point(137, 141);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(82, 23);
             this.btnUpdate.TabIndex = 10;
@@ -139,7 +139,7 @@ namespace Project_1
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(247, 217);
+            this.btnDelete.Location = new System.Drawing.Point(249, 141);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 11;
@@ -149,7 +149,7 @@ namespace Project_1
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(364, 217);
+            this.btnCancel.Location = new System.Drawing.Point(360, 141);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 12;
@@ -159,7 +159,7 @@ namespace Project_1
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(611, 217);
+            this.btnExit.Location = new System.Drawing.Point(776, 141);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 13;
@@ -170,9 +170,9 @@ namespace Project_1
             // dgvCustomer
             // 
             this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomer.Location = new System.Drawing.Point(12, 246);
+            this.dgvCustomer.Location = new System.Drawing.Point(5, 170);
             this.dgvCustomer.Name = "dgvCustomer";
-            this.dgvCustomer.Size = new System.Drawing.Size(690, 142);
+            this.dgvCustomer.Size = new System.Drawing.Size(862, 259);
             this.dgvCustomer.TabIndex = 14;
             this.dgvCustomer.Click += new System.EventHandler(this.dgvEmployee_Click);
             // 
@@ -197,7 +197,7 @@ namespace Project_1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 82);
+            this.label4.Location = new System.Drawing.Point(32, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 18;
@@ -206,7 +206,7 @@ namespace Project_1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(332, 82);
+            this.label5.Location = new System.Drawing.Point(430, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 19;
@@ -215,7 +215,7 @@ namespace Project_1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(552, 82);
+            this.label6.Location = new System.Drawing.Point(752, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 20;
@@ -224,7 +224,7 @@ namespace Project_1
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 139);
+            this.label7.Location = new System.Drawing.Point(32, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 21;
@@ -233,7 +233,7 @@ namespace Project_1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 185);
+            this.label8.Location = new System.Drawing.Point(430, 106);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 22;
@@ -242,7 +242,7 @@ namespace Project_1
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(481, 25);
+            this.label9.Location = new System.Drawing.Point(617, 25);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 23;
@@ -250,7 +250,7 @@ namespace Project_1
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(473, 217);
+            this.btnSearch.Location = new System.Drawing.Point(468, 141);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(124, 23);
             this.btnSearch.TabIndex = 24;
@@ -260,7 +260,7 @@ namespace Project_1
             // 
             // btnTours
             // 
-            this.btnTours.Location = new System.Drawing.Point(473, 180);
+            this.btnTours.Location = new System.Drawing.Point(620, 141);
             this.btnTours.Name = "btnTours";
             this.btnTours.Size = new System.Drawing.Size(124, 23);
             this.btnTours.TabIndex = 25;
@@ -272,7 +272,7 @@ namespace Project_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 392);
+            this.ClientSize = new System.Drawing.Size(874, 435);
             this.Controls.Add(this.btnTours);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label9);
