@@ -120,7 +120,7 @@ namespace Project_1
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(523, 175);
+            this.btnCancel.Location = new System.Drawing.Point(644, 175);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 36;
@@ -130,7 +130,7 @@ namespace Project_1
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(407, 175);
+            this.btnDelete.Location = new System.Drawing.Point(523, 175);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 35;
@@ -140,7 +140,7 @@ namespace Project_1
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(275, 175);
+            this.btnUpdate.Location = new System.Drawing.Point(384, 175);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(86, 23);
             this.btnUpdate.TabIndex = 34;
@@ -150,7 +150,7 @@ namespace Project_1
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(145, 175);
+            this.btnNew.Location = new System.Drawing.Point(252, 175);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 33;
