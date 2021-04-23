@@ -56,7 +56,7 @@ namespace Project_1
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "Tim kiem";
+            this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -107,7 +107,7 @@ namespace Project_1
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Nhap ten khach hang";
+            this.label1.Text = "Nhập tên khách hàng";
             // 
             // txtName
             // 
@@ -128,6 +128,7 @@ namespace Project_1
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+            this.lstCustomer.HideSelection = false;
             this.lstCustomer.LargeImageList = this.imgIcon;
             this.lstCustomer.Location = new System.Drawing.Point(3, 29);
             this.lstCustomer.Name = "lstCustomer";
@@ -139,24 +140,24 @@ namespace Project_1
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Ma khach hang";
+            this.columnHeader1.Text = "Mã khách hàng";
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Ho va ten";
+            this.columnHeader2.Text = "Họ và tên";
             this.columnHeader2.Width = 93;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Ngay sinh";
+            this.columnHeader3.Text = "Ngày sinh";
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Dia chi";
+            this.columnHeader4.Text = "Địa chỉ";
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Dien thoai";
+            this.columnHeader5.Text = "Điện thoại";
             // 
             // columnHeader6
             // 
@@ -169,7 +170,7 @@ namespace Project_1
             this.ClientSize = new System.Drawing.Size(661, 306);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmSearch";
-            this.Text = "Tra cuu khach hang";
+            this.Text = "Tra cứu khách hàng";
             this.Load += new System.EventHandler(this.frmSearch_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -50,3 +50,11 @@ Insert into Customer values('C08',N'Phạm Tiến Năng',1,'1/20/1995',N'Thái B
 Insert into Customer values('C09',N'Nguyễn Thùy Dung',0,'11/1/1995',N'Vũng Tàu','0908070605','dungnguyen@gmail.com','T01')
 Insert into Customer values('C10',N'Phạm Tâm Anh',0,'9/5/1995',N'Vũng Tàu','0908070605','tamanhpham@gmail.com','T02')
 go
+Create table LoginUser(
+UserId int not null primary key identity,
+UserName nvarchar(50),
+Pass nvarchar(50)
+)
+go
+Insert into LoginUser values('admin',1234)
+go

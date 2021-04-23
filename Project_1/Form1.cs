@@ -25,9 +25,9 @@ namespace Project_1
 
         private void frmEmployee_Load(object sender, EventArgs e)
         {
-            //Hiển thị nhân viên lên lưới
+            //Hiển thị khách hàng lên lưới
             DisplayEmployee();
-            //Hiển thị phòng ban lên combobox
+            //Hiển thị tour du lịch lên combobox
             DisplayDepartment();
 
         }
@@ -36,12 +36,12 @@ namespace Project_1
         {
             if (edit)
             {
-                //tìm nhân viên cần sửa có mã như trên form
+                //tìm khách hàng cần sửa có mã như trên form
                 var emp = hrm.Customers.FirstOrDefault(x => x.CusId == txtId.Text);
                 //nếu tìm thấy
                 if (emp != null)
                 {
-                    //gán lại thông tin cho nhân viên
+                    //gán lại thông tin cho khách hàng
                     emp.CusName = txtName.Text;
                     emp.Birthday = txtBirthday.Value;
                     emp.Gender = chkSex.Checked;
@@ -65,7 +65,7 @@ namespace Project_1
             }
             else
             {
-                //tạo mới nhân viên
+                //tạo mới khách hàng
                 var emp = new Customer();
                 //gán giá trị
                 emp.CusId = txtId.Text;
@@ -95,7 +95,7 @@ namespace Project_1
 
         private void dgvEmployee_Click(object sender, EventArgs e)
         {
-            //hiển thị chi tiết nhân viên khi kích vào lưới
+            //hiển thị chi tiết khách hàng khi kích vào lưới
             DisplayEmployeeDetail();
         }
 
@@ -105,7 +105,7 @@ namespace Project_1
             {
                 if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //tìm nhân viên có mã như trên form
+                    //tìm khách hàng có mã như trên form
                     var emp = hrm.Customers.FirstOrDefault(x => x.CusId ==
                     txtId.Text);
                     if (emp != null)
@@ -127,7 +127,7 @@ namespace Project_1
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //hiển thị lại chi tiết nhân viên
+            //hiển thị lại chi tiết khách hàng
             DisplayEmployeeDetail();
         }
 
@@ -135,10 +135,10 @@ namespace Project_1
         {
             this.Close();
         }
-        //Phương thức hiển thị phòng ban lên combo box
+        //Phương thức hiển thị tour lên combo box
         private void DisplayDepartment()
         {
-            //lấy danh sách phòng ban
+            //lấy danh sách tour
             var departments = from dep in hrm.Tours
                               select new
                               {
@@ -152,7 +152,7 @@ namespace Project_1
         //Phương thức hiển thị dữ liệu lên lưới
         private void DisplayEmployee()
         {
-            //truy vấn lấy các thông tin cần thiết trong bảng Employee
+            //truy vấn lấy các thông tin cần thiết trong bảng Customers
             var employess = from emp in hrm.Customers
                             select new
                             {
@@ -169,7 +169,7 @@ namespace Project_1
             dgvCustomer.DataSource = employess;
             DisplayEmployeeDetail();
         }
-        //phương thức hiển thị chi tiết nhân viên của dòng hiện tại trên lưới lên form
+        //phương thức hiển thị chi tiết khách hàng của dòng hiện tại trên lưới lên form
         private void DisplayEmployeeDetail()
         {
             //nếu dòng hiện tại trên lưới khác null
@@ -204,7 +204,7 @@ namespace Project_1
 
         private void cboTour_Click(object sender, EventArgs e)
         {
-            //Hiển thị phòng ban lên combobox
+            //Hiển thị tour du lịch lên combobox
             DisplayDepartment();
         }
     }

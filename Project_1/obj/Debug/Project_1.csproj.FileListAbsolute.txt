@@ -22,3 +22,16 @@ D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.csproj.GenerateResource.
 D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.csproj.CoreCompileInputs.cache
 D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.exe
 D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.pdb
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\bin\Debug\Project_1.exe.config
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\bin\Debug\Project_1.exe
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\bin\Debug\Project_1.pdb
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.csprojAssemblyReference.cache
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.frmCustomer.resources
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.frmSearch.resources
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.frmTour.resources
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.Properties.Resources.resources
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.csproj.GenerateResource.cache
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.exe
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.pdb
+C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.frmLogin.resources

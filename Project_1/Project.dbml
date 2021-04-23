@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Project" Class="ProjectDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-RTQ2N2T;Initial Catalog=Project;Integrated Security=True" SettingsObjectName="Project_1.Properties.Settings" SettingsPropertyName="ProjectConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAB3_PC229;Initial Catalog=Project;Integrated Security=True" SettingsObjectName="Project_1.Properties.Settings" SettingsPropertyName="ProjectConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Customer" Member="Customers">
     <Type Name="Customer">
       <Column Name="CusId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -11,6 +11,13 @@
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="TourId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Association Name="Tour_Customer" Member="Tour" ThisKey="TourId" OtherKey="TourId" Type="Tour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoginUser" Member="LoginUsers">
+    <Type Name="LoginUser">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Pass" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Tour" Member="Tours">

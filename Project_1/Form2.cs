@@ -22,7 +22,7 @@ namespace Project_1
 
         private void frmSearch_Load(object sender, EventArgs e)
         {
-            //lấy thông tin phòng ban
+            //lấy thông tin tour du lịch
             var departments = from dep in hrm.Tours
                               select new
                               {
@@ -67,7 +67,7 @@ namespace Project_1
             //lấy nút được chọn
             TreeNode node = trvTour.SelectedNode;
             //Tìm và hiển thị kết quả
-            //lấy nhân viên theo phòng được chọn
+            //lấy khách hàng theo tour được chọn
             var employees = from emp in hrm.Customers
                             where emp.TourId == node.Tag.ToString()
                             && emp.CusName.Contains(txtName.Text)

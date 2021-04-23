@@ -24,7 +24,7 @@ namespace Project_1
         ProjectDataContext hrm = new ProjectDataContext();
         private void DisplayEmployee()
         {
-            //truy vấn lấy các thông tin cần thiết trong bảng Employee
+            //truy vấn lấy các thông tin cần thiết trong bảng Tours
             var employess = from emp in hrm.Tours
                             select new
                             {
@@ -42,7 +42,7 @@ namespace Project_1
             dgvTour.DataSource = employess;
             DisplayEmployeeDetail();
         }
-        //phương thức hiển thị chi tiết nhân viên của dòng hiện tại trên lưới lên form
+        //phương thức hiển thị chi tiết tour du lịch của dòng hiện tại trên lưới lên form
         private void DisplayEmployeeDetail()
         {
             //nếu dòng hiện tại trên lưới khác null
@@ -65,7 +65,7 @@ namespace Project_1
         }
         private void frmTour_Load(object sender, EventArgs e)
         {
-            //Hiển thị nhân viên lên lưới
+            //Hiển thị tour du lịch lên lưới
             DisplayEmployee();
         }
 
@@ -82,12 +82,12 @@ namespace Project_1
         {
             if (edit)
             {
-                //tìm nhân viên cần sửa có mã như trên form
+                //tìm tour du lịch cần sửa có mã như trên form
                 var emp = hrm.Tours.FirstOrDefault(x => x.TourId == txtId.Text);
                 //nếu tìm thấy
                 if (emp != null)
                 {
-                    //gán lại thông tin cho nhân viên
+                    //gán lại thông tin cho tour du lịch
                     emp.TourName = txtName.Text;
                     emp.Destinations = txtDestinations.Text;
                     emp.Price = Double.Parse(txtPrice.Text);
@@ -112,7 +112,7 @@ namespace Project_1
             }
             else
             {
-                //tạo mới nhân viên
+                //tạo mới tour du lịch
                 var emp = new Tour();
                 //gán giá trị
                 emp.TourId = txtId.Text;
@@ -138,7 +138,7 @@ namespace Project_1
             {
                 if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //tìm nhân viên có mã như trên form
+                    //tìm tour du lịch có mã như trên form
                     var emp = hrm.Tours.FirstOrDefault(x => x.TourId == txtId.Text);
                     if (emp != null)
                     {
@@ -159,13 +159,13 @@ namespace Project_1
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //hiển thị lại chi tiết nhân viên
+            //hiển thị lại chi tiết tour du lịch
             DisplayEmployeeDetail();
         }
 
         private void dgvTour_Click(object sender, EventArgs e)
         {
-            //hiển thị chi tiết nhân viên khi kích vào lưới
+            //hiển thị chi tiết tour du lịch khi kích vào lưới
             DisplayEmployeeDetail();
         }
 

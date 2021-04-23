@@ -62,7 +62,7 @@ namespace Project_1
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 13);
             this.label8.TabIndex = 45;
-            this.label8.Text = "Thoi gian";
+            this.label8.Text = "Thời gian";
             // 
             // label7
             // 
@@ -71,7 +71,7 @@ namespace Project_1
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 44;
-            this.label7.Text = "Mo ta";
+            this.label7.Text = "Mô tả";
             // 
             // label5
             // 
@@ -80,16 +80,16 @@ namespace Project_1
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 42;
-            this.label5.Text = "Gia tien";
+            this.label5.Text = "Giá tiền";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(546, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 41;
-            this.label4.Text = "Diem den";
+            this.label4.Text = "Điểm đến";
             // 
             // label2
             // 
@@ -98,7 +98,7 @@ namespace Project_1
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 40;
-            this.label2.Text = "Ten Tour";
+            this.label2.Text = "Tên Tour";
             // 
             // label1
             // 
@@ -107,7 +107,7 @@ namespace Project_1
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 39;
-            this.label1.Text = "Ma Tour";
+            this.label1.Text = "Mã Tour";
             // 
             // dgvTour
             // 
@@ -124,7 +124,7 @@ namespace Project_1
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 36;
-            this.btnCancel.Text = "Bo qua";
+            this.btnCancel.Text = "Bỏ qua";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -134,7 +134,7 @@ namespace Project_1
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 35;
-            this.btnDelete.Text = "Xoa";
+            this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -144,7 +144,7 @@ namespace Project_1
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(86, 23);
             this.btnUpdate.TabIndex = 34;
-            this.btnUpdate.Text = "Luu/Cap nhat";
+            this.btnUpdate.Text = "Lưu/Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -154,7 +154,7 @@ namespace Project_1
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 33;
-            this.btnNew.Text = "Tao moi";
+            this.btnNew.Text = "Tạo mới";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
@@ -215,7 +215,7 @@ namespace Project_1
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 13);
             this.label3.TabIndex = 48;
-            this.label3.Text = "Phuong tien di chuyen";
+            this.label3.Text = "Phương tiện di chuyển";
             // 
             // txtTourType
             // 
@@ -238,7 +238,7 @@ namespace Project_1
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 51;
-            this.label6.Text = "Loai Tour";
+            this.label6.Text = "Loại Tour";
             // 
             // label9
             // 
@@ -247,7 +247,7 @@ namespace Project_1
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 13);
             this.label9.TabIndex = 52;
-            this.label9.Text = "Huong dan vien";
+            this.label9.Text = "Hướng dẫn viên";
             // 
             // frmTour
             // 
@@ -278,7 +278,7 @@ namespace Project_1
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtId);
             this.Name = "frmTour";
-            this.Text = "Quan ly Tour du lich";
+            this.Text = "Quản lý Tour du lịch";
             this.Load += new System.EventHandler(this.frmTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTour)).EndInit();
             this.ResumeLayout(false);

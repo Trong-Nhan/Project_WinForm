@@ -93,6 +93,8 @@ namespace Project_1
             // 
             // txtBirthday
             // 
+            this.txtBirthday.CustomFormat = "dd/MM/yyyy";
+            this.txtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtBirthday.Location = new System.Drawing.Point(92, 60);
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.Size = new System.Drawing.Size(232, 20);
@@ -123,7 +125,7 @@ namespace Project_1
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 9;
-            this.btnNew.Text = "Tao moi";
+            this.btnNew.Text = "Tạo mới";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
@@ -133,7 +135,7 @@ namespace Project_1
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(82, 23);
             this.btnUpdate.TabIndex = 10;
-            this.btnUpdate.Text = "Luu/Cap nhat";
+            this.btnUpdate.Text = "Lưu/Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -143,7 +145,7 @@ namespace Project_1
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 11;
-            this.btnDelete.Text = "Xoa";
+            this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -153,7 +155,7 @@ namespace Project_1
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 12;
-            this.btnCancel.Text = "Bo qua";
+            this.btnCancel.Text = "Bỏ qua";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -163,7 +165,7 @@ namespace Project_1
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 13;
-            this.btnExit.Text = "Thoat";
+            this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -183,7 +185,7 @@ namespace Project_1
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Ma KH";
+            this.label1.Text = "Mã KH";
             // 
             // label2
             // 
@@ -192,7 +194,7 @@ namespace Project_1
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Ten";
+            this.label2.Text = "Tên";
             // 
             // label4
             // 
@@ -201,7 +203,7 @@ namespace Project_1
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Ngay sinh";
+            this.label4.Text = "Ngày sinh";
             // 
             // label5
             // 
@@ -217,9 +219,9 @@ namespace Project_1
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(752, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Gioi tinh";
+            this.label6.Text = "Giới tính";
             // 
             // label7
             // 
@@ -228,7 +230,7 @@ namespace Project_1
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 21;
-            this.label7.Text = "Dia chi";
+            this.label7.Text = "Địa chỉ";
             // 
             // label8
             // 
@@ -237,7 +239,7 @@ namespace Project_1
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 22;
-            this.label8.Text = "Dien thoai";
+            this.label8.Text = "Điện thoại";
             // 
             // label9
             // 
@@ -246,7 +248,7 @@ namespace Project_1
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 23;
-            this.label9.Text = "Tour du lich";
+            this.label9.Text = "Tour du lịch";
             // 
             // btnSearch
             // 
@@ -254,7 +256,7 @@ namespace Project_1
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(124, 23);
             this.btnSearch.TabIndex = 24;
-            this.btnSearch.Text = "Tim kiem khach hang";
+            this.btnSearch.Text = "Tìm kiếm khách hàng";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -264,7 +266,7 @@ namespace Project_1
             this.btnTours.Name = "btnTours";
             this.btnTours.Size = new System.Drawing.Size(124, 23);
             this.btnTours.TabIndex = 25;
-            this.btnTours.Text = "Quan ly Tour";
+            this.btnTours.Text = "Quản lý Tour";
             this.btnTours.UseVisualStyleBackColor = true;
             this.btnTours.Click += new System.EventHandler(this.btnTours_Click);
             // 
@@ -298,7 +300,7 @@ namespace Project_1
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtId);
             this.Name = "frmCustomer";
-            this.Text = "Quan ly khach hang";
+            this.Text = "Quản lý khách hàng";
             this.Load += new System.EventHandler(this.frmEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.ResumeLayout(false);
