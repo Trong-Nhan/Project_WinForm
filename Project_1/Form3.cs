@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -128,7 +129,7 @@ namespace Project_1
                     // Validate tất cả các trường nhập
                     ValidateRequiredField(errField, txtName);
                     ValidateRequiredField(errField, txtDestinations);
-                    ValidateRequiredField(errField, txtPrice);
+                    ValidatePrice(errField, txtPrice);
                     ValidateRequiredField(errField, txtDescrible);
                     ValidateRequiredField(errField, txtTourTime);
                     ValidateRequiredField(errField, txtVehicle);
@@ -174,7 +175,7 @@ namespace Project_1
                 ValidateRequiredField(errField, txtId);
                 ValidateRequiredField(errField, txtName);
                 ValidateRequiredField(errField, txtDestinations);
-                ValidateRequiredField(errField, txtPrice);
+                ValidatePrice(errField, txtPrice);
                 ValidateRequiredField(errField, txtDescrible);
                 ValidateRequiredField(errField, txtTourTime);
                 ValidateRequiredField(errField, txtVehicle);
@@ -244,5 +245,28 @@ namespace Project_1
             DisplayEmployeeDetail();
         }
 
+        private void txtPrice_Validating(object sender, CancelEventArgs e)
+        {
+            ValidatePrice(errField, txtPrice);
+        }
+        // Validate Price
+        private void ValidatePrice(ErrorProvider err, TextBox txt)
+        {
+            // Kiểm tra trường bị trống
+            if (ValidateRequiredField(err, txt)) return;
+
+            // Kiểm tra trường có ghi đúng cú pháp hay không
+            Regex regex = new Regex(@"^[0-9]*$");
+            if (regex.IsMatch(txt.Text))
+            {
+                // Xoá lỗi
+                errField.SetError(txt, "");
+            }
+            else
+            {
+                // Hiển thị lỗi
+                errField.SetError(txt, "Giá tiền phải là số.");
+            }
+        }
     }
 }

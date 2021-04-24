@@ -182,6 +182,7 @@ namespace Project_1
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(201, 20);
             this.txtPrice.TabIndex = 27;
+            this.txtPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrice_Validating);
             // 
             // txtName
             // 
