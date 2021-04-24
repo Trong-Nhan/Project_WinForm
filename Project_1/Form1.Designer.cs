@@ -29,6 +29,7 @@ namespace Project_1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -53,7 +54,9 @@ namespace Project_1
             this.label9 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnTours = new System.Windows.Forms.Button();
+            this.errField = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errField)).BeginInit();
             this.SuspendLayout();
             // 
             // txtId
@@ -76,6 +79,7 @@ namespace Project_1
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(212, 20);
             this.txtEmail.TabIndex = 3;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtAddress
             // 
@@ -90,6 +94,7 @@ namespace Project_1
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(173, 20);
             this.txtPhone.TabIndex = 5;
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // txtBirthday
             // 
@@ -270,6 +275,10 @@ namespace Project_1
             this.btnTours.UseVisualStyleBackColor = true;
             this.btnTours.Click += new System.EventHandler(this.btnTours_Click);
             // 
+            // errField
+            // 
+            this.errField.ContainerControl = this;
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +312,7 @@ namespace Project_1
             this.Text = "Quản lý khách hàng";
             this.Load += new System.EventHandler(this.frmEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errField)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,5 +344,6 @@ namespace Project_1
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnTours;
+        private System.Windows.Forms.ErrorProvider errField;
     }
 }

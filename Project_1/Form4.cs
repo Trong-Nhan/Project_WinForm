@@ -24,14 +24,16 @@ namespace Project_1
         {
             if (IsvalidUser(txtUser.Text, txtPassword.Text))
             {
+                
                 frmCustomer fc = new frmCustomer();
-                fc.Show();
+                fc.ShowDialog();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //xóa trắng dữ liệu trên form
-                txtUser.Text = txtPassword.Text  = "";
+                txtUser.Text = txtPassword.Text = "";
                 txtUser.Focus();
             }
         }

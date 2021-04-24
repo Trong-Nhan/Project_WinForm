@@ -77,6 +77,44 @@ namespace Project_1
             edit = false;
             txtId.ReadOnly = false;
         }
+        // Validate trường nhập được yêu cầu. Trả về true khi trường nhập hợp lệ
+        private bool ValidateRequiredField(ErrorProvider err, TextBox txt)
+        {
+            if (txt.Text.Length > 0)
+            {
+                // Xóa lỗi
+                err.SetError(txt, "");
+                return false;
+            }
+            else
+            {
+                // Thông báo lỗi
+                err.SetError(txt, CamelCaseToWords(txt.Name) + " không được để trống.");
+                return true;
+            }
+        }
+
+        // Validate các trường nhập
+        private void txtRequiredField_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            ValidateRequiredField(errField, txt);
+        }
+
+        // Tách một chuỗi trong camelCase, xóa tiền tố
+        private string CamelCaseToWords(string input)
+        {
+            // Chèn một khoảng trắng trước mỗi chữ cái viết hoa
+            string result = "";
+            foreach (char ch in input.ToCharArray())
+            {
+                if (char.IsUpper(ch)) result += " ";
+                result += ch;
+            }
+
+            // Tìm khoảng trống đầu tiên và xóa mọi thứ trước nó
+            return result.Substring(result.IndexOf(" ") + 1);
+        }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -87,6 +125,24 @@ namespace Project_1
                 //nếu tìm thấy
                 if (emp != null)
                 {
+                    // Validate tất cả các trường nhập
+                    ValidateRequiredField(errField, txtName);
+                    ValidateRequiredField(errField, txtDestinations);
+                    ValidateRequiredField(errField, txtPrice);
+                    ValidateRequiredField(errField, txtDescrible);
+                    ValidateRequiredField(errField, txtTourTime);
+                    ValidateRequiredField(errField, txtVehicle);
+                    ValidateRequiredField(errField, txtTourType);
+                    ValidateRequiredField(errField, txtTourGuide);
+                    // Hiển thị khi bất kỳ trường nhập nào lỗi
+                    foreach (Control ctl in Controls)
+                    {
+                        if (errField.GetError(ctl) != "")
+                        {
+                            MessageBox.Show(errField.GetError(ctl));
+                            return;
+                        }
+                    }
                     //gán lại thông tin cho tour du lịch
                     emp.TourName = txtName.Text;
                     emp.Destinations = txtDestinations.Text;
@@ -114,6 +170,25 @@ namespace Project_1
             {
                 //tạo mới tour du lịch
                 var emp = new Tour();
+                // Validate tất cả các trường nhập
+                ValidateRequiredField(errField, txtId);
+                ValidateRequiredField(errField, txtName);
+                ValidateRequiredField(errField, txtDestinations);
+                ValidateRequiredField(errField, txtPrice);
+                ValidateRequiredField(errField, txtDescrible);
+                ValidateRequiredField(errField, txtTourTime);
+                ValidateRequiredField(errField, txtVehicle);
+                ValidateRequiredField(errField, txtTourType);
+                ValidateRequiredField(errField, txtTourGuide);
+                // Hiển thị khi bất kỳ trường nhập nào lỗi
+                foreach (Control ctl in Controls)
+                {
+                    if (errField.GetError(ctl) != "")
+                    {
+                        MessageBox.Show(errField.GetError(ctl));
+                        return;
+                    }
+                }
                 //gán giá trị
                 emp.TourId = txtId.Text;
                 emp.TourName = txtName.Text;

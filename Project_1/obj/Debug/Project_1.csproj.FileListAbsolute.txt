@@ -35,3 +35,4 @@ C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.csproj.Core
 C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.exe
 C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.pdb
 C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.frmLogin.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.frmLogin.resources

@@ -29,6 +29,7 @@ namespace Project_1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,7 +53,9 @@ namespace Project_1
             this.txtTourGuide = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.errField = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errField)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -249,6 +252,10 @@ namespace Project_1
             this.label9.TabIndex = 52;
             this.label9.Text = "Hướng dẫn viên";
             // 
+            // errField
+            // 
+            this.errField.ContainerControl = this;
+            // 
             // frmTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +288,7 @@ namespace Project_1
             this.Text = "Quản lý Tour du lịch";
             this.Load += new System.EventHandler(this.frmTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errField)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +318,6 @@ namespace Project_1
         private System.Windows.Forms.TextBox txtTourGuide;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errField;
     }
 }

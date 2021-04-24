@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,7 +32,44 @@ namespace Project_1
             DisplayDepartment();
 
         }
+        // Validate trường nhập được yêu cầu. Trả về true khi trường nhập hợp lệ
+        private bool ValidateRequiredField(ErrorProvider err, TextBox txt)
+        {
+            if (txt.Text.Length > 0)
+            {
+                // Xóa lỗi
+                err.SetError(txt, "");
+                return false;
+            }
+            else
+            {
+                // Thông báo lỗi
+                err.SetError(txt, CamelCaseToWords(txt.Name) + " không được để trống.");
+                return true;
+            }
+        }
 
+        // Validate các trường nhập
+        private void txtRequiredField_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            ValidateRequiredField(errField, txt);
+        }
+
+        // Tách một chuỗi trong camelCase, xóa tiền tố
+        private string CamelCaseToWords(string input)
+        {
+            // Chèn một khoảng trắng trước mỗi chữ cái viết hoa
+            string result = "";
+            foreach (char ch in input.ToCharArray())
+            {
+                if (char.IsUpper(ch)) result += " ";
+                result += ch;
+            }
+
+            // Tìm khoảng trống đầu tiên và xóa mọi thứ trước nó
+            return result.Substring(result.IndexOf(" ") + 1);
+        }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (edit)
@@ -41,6 +79,20 @@ namespace Project_1
                 //nếu tìm thấy
                 if (emp != null)
                 {
+                    // Validate tất cả các trường nhập
+                    ValidateRequiredField(errField, txtName);
+                    ValidatePhoneNumber(errField, txtPhone);
+                    ValidateRequiredField(errField, txtAddress);
+                    ValidateEmail(errField, txtEmail);
+                    // Hiển thị khi bất kỳ trường nhập nào lỗi
+                    foreach (Control ctl in Controls)
+                    {
+                        if (errField.GetError(ctl) != "")
+                        {
+                            MessageBox.Show(errField.GetError(ctl));
+                            return;
+                        }
+                    }
                     //gán lại thông tin cho khách hàng
                     emp.CusName = txtName.Text;
                     emp.Birthday = txtBirthday.Value;
@@ -67,6 +119,21 @@ namespace Project_1
             {
                 //tạo mới khách hàng
                 var emp = new Customer();
+                // Validate tất cả các trường nhập
+                ValidateRequiredField(errField, txtId);
+                ValidateRequiredField(errField, txtName);
+                ValidatePhoneNumber(errField, txtPhone);
+                ValidateRequiredField(errField, txtAddress);
+                ValidateEmail(errField, txtEmail);
+                // Hiển thị khi bất kỳ trường nhập nào lỗi
+                foreach (Control ctl in Controls)
+                {
+                    if (errField.GetError(ctl) != "")
+                    {
+                        MessageBox.Show(errField.GetError(ctl));
+                        return;
+                    }
+                }
                 //gán giá trị
                 emp.CusId = txtId.Text;
                 emp.CusName = txtName.Text;
@@ -206,6 +273,56 @@ namespace Project_1
         {
             //Hiển thị tour du lịch lên combobox
             DisplayDepartment();
+        }
+
+        private void txtPhone_Validating(object sender, CancelEventArgs e)
+        {
+            ValidatePhoneNumber(errField, txtPhone);
+        }
+        // Validate số điện thoại
+        private void ValidatePhoneNumber(ErrorProvider err, TextBox txt)
+        {
+            // Kiểm tra trường bị trống
+            if (ValidateRequiredField(err, txt)) return;
+
+            // Kiểm tra trường có ghi đúng cú pháp hay không
+            Regex regex = new Regex(@"^(\d{10})$");
+            if (regex.IsMatch(txt.Text))
+            {
+                // Xoá lỗi
+                errField.SetError(txt, "");
+            }
+            else
+            {
+                // Hiển thị lỗi
+                errField.SetError(txt, "Số điện thoại phải là dãy 10 chữ số liên tiếp");
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateEmail(errField, txtEmail);
+        }
+        // Validate email
+        private void ValidateEmail(ErrorProvider err, TextBox txt)
+        {
+            // Kiểm tra trường bị trống
+            if (ValidateRequiredField(err, txt)) return;
+
+            // Kiểm tra trường có ghi đúng cú pháp hay không
+            Regex regex = new Regex(@"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+            + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
+            + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$");
+            if (regex.IsMatch(txt.Text))
+            {
+                // Xoá lỗi
+                errField.SetError(txt, "");
+            }
+            else
+            {
+                // Hiển thị lỗi
+                errField.SetError(txt, "Email cần viết theo định dạng someone@somewhere.com");
+            }
         }
     }
 }
