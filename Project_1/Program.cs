@@ -16,7 +16,15 @@ namespace Project_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            frmLogin fLogin = new frmLogin();
+            if (fLogin.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new frmCustomer());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

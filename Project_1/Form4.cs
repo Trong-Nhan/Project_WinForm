@@ -24,10 +24,7 @@ namespace Project_1
         {
             if (IsvalidUser(txtUser.Text, txtPassword.Text))
             {
-                
-                frmCustomer fc = new frmCustomer();
-                fc.ShowDialog();
-                this.Close();
+                DialogResult = DialogResult.OK;
             }
             else
             {
