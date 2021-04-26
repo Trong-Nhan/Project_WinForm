@@ -51,15 +51,15 @@ namespace Project_1
         private void trvDepartment_AfterSelect(object sender, TreeViewEventArgs e)
         {
             //gọi phương thức tìm
-            SearchCustomer();
+            SearchEmployee();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //gọi phương thức tìm
-            SearchCustomer();
+            SearchEmployee();
         }
-        public void SearchCustomer()
+        public void SearchEmployee()
         {
             //xóa ListVIew
             lstCustomer.Items.Clear();

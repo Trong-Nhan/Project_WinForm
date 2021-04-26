@@ -23,7 +23,7 @@ namespace Project_1
         bool edit = true;
         //Khởi tạo đối tượng quản lý Database (DataContext)
         ProjectDataContext hrm = new ProjectDataContext();
-        private void DisplayTour()
+        private void DisplayEmployee()
         {
             //truy vấn lấy các thông tin cần thiết trong bảng Tours
             var employess = from emp in hrm.Tours
@@ -41,10 +41,10 @@ namespace Project_1
                             };
             //hiển thị lên lưới
             dgvTour.DataSource = employess;
-            DisplayTourDetail();
+            DisplayEmployeeDetail();
         }
         //phương thức hiển thị chi tiết tour du lịch của dòng hiện tại trên lưới lên form
-        private void DisplayTourDetail()
+        private void DisplayEmployeeDetail()
         {
             //nếu dòng hiện tại trên lưới khác null
             if (dgvTour.CurrentRow != null)
@@ -67,7 +67,7 @@ namespace Project_1
         private void frmTour_Load(object sender, EventArgs e)
         {
             //Hiển thị tour du lịch lên lưới
-            DisplayTour();
+            DisplayEmployee();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -157,7 +157,7 @@ namespace Project_1
                     //lưu
                     hrm.SubmitChanges();
                     //hiển thị lại dữ liệu
-                    DisplayTour();
+                    DisplayEmployee();
                     //hiển thị đúng vị trí dòng đã chọn trước đó
                     dgvTour.Rows[0].Selected = false;
                     dgvTour.Rows[position].Selected = true;
@@ -205,7 +205,7 @@ namespace Project_1
                 //lưu
                 hrm.SubmitChanges();
                 //hiển thị lại dữ liệu
-                DisplayTour();
+                DisplayEmployee();
             }
         }
 
@@ -224,7 +224,7 @@ namespace Project_1
                         //lưu
                         hrm.SubmitChanges();
                         //hiển thị lại dữ liệu
-                        DisplayTour();
+                        DisplayEmployee();
                     }
                 }
             }
@@ -237,13 +237,13 @@ namespace Project_1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //hiển thị lại chi tiết tour du lịch
-            DisplayTourDetail();
+            DisplayEmployeeDetail();
         }
 
         private void dgvTour_Click(object sender, EventArgs e)
         {
             //hiển thị chi tiết tour du lịch khi kích vào lưới
-            DisplayTourDetail();
+            DisplayEmployeeDetail();
         }
 
         private void txtPrice_Validating(object sender, CancelEventArgs e)
