@@ -24,12 +24,12 @@ namespace Project_1
         //Khởi tạo đối tượng quản lý Database (DataContext)
         ProjectDataContext hrm = new ProjectDataContext();
 
-        private void frmCustomer_Load(object sender, EventArgs e)
+        private void frmEmployee_Load(object sender, EventArgs e)
         {
             //Hiển thị khách hàng lên lưới
-            DisplayCustomer();
+            DisplayEmployee();
             //Hiển thị tour du lịch lên combobox
-            DisplayTour();
+            DisplayDepartment();
 
         }
         // Validate trường nhập được yêu cầu. Trả về true khi trường nhập hợp lệ
@@ -104,7 +104,7 @@ namespace Project_1
                     //lưu
                     hrm.SubmitChanges();
                     //hiển thị lại dữ liệu
-                    DisplayCustomer();
+                    DisplayEmployee();
                     //hiển thị đúng vị trí dòng đã chọn trước đó
                     dgvCustomer.Rows[0].Selected = false;
                     dgvCustomer.Rows[position].Selected = true;
@@ -147,7 +147,7 @@ namespace Project_1
                 //lưu
                 hrm.SubmitChanges();
                 //hiển thị lại dữ liệu
-                DisplayCustomer();
+                DisplayEmployee();
             }
         }
 
@@ -163,7 +163,7 @@ namespace Project_1
         private void dgvEmployee_Click(object sender, EventArgs e)
         {
             //hiển thị chi tiết khách hàng khi kích vào lưới
-            DisplayCustomerDetail();
+            DisplayEmployeeDetail();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -182,7 +182,7 @@ namespace Project_1
                         //lưu
                         hrm.SubmitChanges();
                         //hiển thị lại dữ liệu
-                        DisplayCustomer();
+                        DisplayEmployee();
                     }
                 }
             }
@@ -195,7 +195,7 @@ namespace Project_1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //hiển thị lại chi tiết khách hàng
-            DisplayCustomerDetail();
+            DisplayEmployeeDetail();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -203,7 +203,7 @@ namespace Project_1
             this.Close();
         }
         //Phương thức hiển thị tour lên combo box
-        private void DisplayTour()
+        private void DisplayDepartment()
         {
             //lấy danh sách tour
             var departments = from dep in hrm.Tours
@@ -217,7 +217,7 @@ namespace Project_1
             cboTour.ValueMember = "TourId";
         }
         //Phương thức hiển thị dữ liệu lên lưới
-        private void DisplayCustomer()
+        private void DisplayEmployee()
         {
             //truy vấn lấy các thông tin cần thiết trong bảng Customers
             var employess = from emp in hrm.Customers
@@ -234,10 +234,10 @@ namespace Project_1
                             };
             //hiển thị lên lưới
             dgvCustomer.DataSource = employess;
-            DisplayCustomerDetail();
+            DisplayEmployeeDetail();
         }
         //phương thức hiển thị chi tiết khách hàng của dòng hiện tại trên lưới lên form
-        private void DisplayCustomerDetail()
+        private void DisplayEmployeeDetail()
         {
             //nếu dòng hiện tại trên lưới khác null
             if (dgvCustomer.CurrentRow != null)
@@ -272,7 +272,7 @@ namespace Project_1
         private void cboTour_Click(object sender, EventArgs e)
         {
             //Hiển thị tour du lịch lên combobox
-            DisplayTour();
+            DisplayDepartment();
         }
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
