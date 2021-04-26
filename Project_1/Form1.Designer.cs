@@ -309,7 +309,7 @@ namespace Project_1
             this.Controls.Add(this.txtId);
             this.Name = "frmCustomer";
             this.Text = "Quản lý khách hàng";
-            this.Load += new System.EventHandler(this.frmEmployee_Load);
+            this.Load += new System.EventHandler(this.frmCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errField)).EndInit();
             this.ResumeLayout(false);
