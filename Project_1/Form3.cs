@@ -127,7 +127,6 @@ namespace Project_1
                 if (emp != null)
                 {
                     // Validate tất cả các trường nhập
-                    ValidateRequiredField(errField, txtId);
                     ValidateRequiredField(errField, txtName);
                     ValidateRequiredField(errField, txtDestinations);
                     ValidatePrice(errField, txtPrice);

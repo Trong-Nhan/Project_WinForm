@@ -76,8 +76,8 @@ namespace Project_1
             this.splitContainer1.Panel2.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel2.Controls.Add(this.txtName);
             this.splitContainer1.Panel2.Controls.Add(this.lstCustomer);
-            this.splitContainer1.Size = new System.Drawing.Size(798, 306);
-            this.splitContainer1.SplitterDistance = 197;
+            this.splitContainer1.Size = new System.Drawing.Size(661, 306);
+            this.splitContainer1.SplitterDistance = 220;
             this.splitContainer1.TabIndex = 1;
             // 
             // trvTour
@@ -132,7 +132,7 @@ namespace Project_1
             this.lstCustomer.LargeImageList = this.imgIcon;
             this.lstCustomer.Location = new System.Drawing.Point(3, 29);
             this.lstCustomer.Name = "lstCustomer";
-            this.lstCustomer.Size = new System.Drawing.Size(591, 274);
+            this.lstCustomer.Size = new System.Drawing.Size(431, 274);
             this.lstCustomer.SmallImageList = this.imgIcon;
             this.lstCustomer.TabIndex = 0;
             this.lstCustomer.UseCompatibleStateImageBehavior = false;
@@ -141,38 +141,33 @@ namespace Project_1
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mã khách hàng";
-            this.columnHeader1.Width = 88;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Họ và tên";
-            this.columnHeader2.Width = 122;
+            this.columnHeader2.Width = 93;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Ngày sinh";
-            this.columnHeader3.Width = 73;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Địa chỉ";
-            this.columnHeader4.Width = 67;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Điện thoại";
-            this.columnHeader5.Width = 81;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Email";
-            this.columnHeader6.Width = 152;
             // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 306);
+            this.ClientSize = new System.Drawing.Size(661, 306);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmSearch";
             this.Text = "Tra cứu khách hàng";
