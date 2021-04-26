@@ -98,8 +98,7 @@ namespace Project_1
             // 
             // txtBirthday
             // 
-            this.txtBirthday.CustomFormat = "dd/MM/yyyy";
-            this.txtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtBirthday.CustomFormat = "";
             this.txtBirthday.Location = new System.Drawing.Point(92, 60);
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.Size = new System.Drawing.Size(232, 20);
