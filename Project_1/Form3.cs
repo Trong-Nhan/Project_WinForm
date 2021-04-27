@@ -26,21 +26,21 @@ namespace Project_1
         private void DisplayTour()
         {
             //truy vấn lấy các thông tin cần thiết trong bảng Tours
-            var employess = from emp in hrm.Tours
+            var tours = from tr in hrm.Tours
                             select new
                             {
-                                Ma_Tour = emp.TourId,
-                                Ten = emp.TourName,
-                                Diem_den = emp.Destinations,
-                                Gia_tien = emp.Price,
-                                Mo_ta = emp.Describle,
-                                Thoi_gian = emp.TourTime,
-                                Phuong_tien_di_chuyen = emp.Vehicle,
-                                Loai_Tour = emp.TourType,
-                                Huong_dan_vien = emp.TourGuide
+                                Ma_Tour = tr.TourId,
+                                Ten = tr.TourName,
+                                Diem_den = tr.Destinations,
+                                Gia_tien = tr.Price,
+                                Mo_ta = tr.Describle,
+                                Thoi_gian = tr.TourTime,
+                                Phuong_tien_di_chuyen = tr.Vehicle,
+                                Loai_Tour = tr.TourType,
+                                Huong_dan_vien = tr.TourGuide
                             };
             //hiển thị lên lưới
-            dgvTour.DataSource = employess;
+            dgvTour.DataSource = tours;
             DisplayTourDetail();
         }
         //phương thức hiển thị chi tiết tour du lịch của dòng hiện tại trên lưới lên form
@@ -122,9 +122,9 @@ namespace Project_1
             if (edit)
             {
                 //tìm tour du lịch cần sửa có mã như trên form
-                var emp = hrm.Tours.FirstOrDefault(x => x.TourId == txtId.Text);
+                var tr = hrm.Tours.FirstOrDefault(x => x.TourId == txtId.Text);
                 //nếu tìm thấy
-                if (emp != null)
+                if (tr != null)
                 {
                     // Validate tất cả các trường nhập
                     ValidateRequiredField(errField, txtId);
@@ -146,14 +146,14 @@ namespace Project_1
                         }
                     }
                     //gán lại thông tin cho tour du lịch
-                    emp.TourName = txtName.Text;
-                    emp.Destinations = txtDestinations.Text;
-                    emp.Price = Double.Parse(txtPrice.Text);
-                    emp.Describle = txtDescrible.Text;
-                    emp.TourTime = txtTourTime.Text;
-                    emp.Vehicle = txtVehicle.Text;
-                    emp.TourType = txtTourType.Text;
-                    emp.TourGuide = txtTourGuide.Text;
+                    tr.TourName = txtName.Text;
+                    tr.Destinations = txtDestinations.Text;
+                    tr.Price = Double.Parse(txtPrice.Text);
+                    tr.Describle = txtDescrible.Text;
+                    tr.TourTime = txtTourTime.Text;
+                    tr.Vehicle = txtVehicle.Text;
+                    tr.TourType = txtTourType.Text;
+                    tr.TourGuide = txtTourGuide.Text;
                     //lưu
                     hrm.SubmitChanges();
                     //hiển thị lại dữ liệu
@@ -171,7 +171,7 @@ namespace Project_1
             else
             {
                 //tạo mới tour du lịch
-                var emp = new Tour();
+                var tr = new Tour();
                 // Validate tất cả các trường nhập
                 ValidateRequiredField(errField, txtId);
                 ValidateRequiredField(errField, txtName);
@@ -192,16 +192,16 @@ namespace Project_1
                     }
                 }
                 //gán giá trị
-                emp.TourId = txtId.Text;
-                emp.TourName = txtName.Text;
-                emp.Destinations = txtDestinations.Text;
-                emp.Price = Double.Parse(txtPrice.Text);
-                emp.Describle = txtDescrible.Text;
-                emp.TourTime = txtTourTime.Text;
-                emp.Vehicle = txtVehicle.Text;
-                emp.TourType = txtTourType.Text;
-                emp.TourGuide = txtTourGuide.Text;
-                hrm.Tours.InsertOnSubmit(emp);
+                tr.TourId = txtId.Text;
+                tr.TourName = txtName.Text;
+                tr.Destinations = txtDestinations.Text;
+                tr.Price = Double.Parse(txtPrice.Text);
+                tr.Describle = txtDescrible.Text;
+                tr.TourTime = txtTourTime.Text;
+                tr.Vehicle = txtVehicle.Text;
+                tr.TourType = txtTourType.Text;
+                tr.TourGuide = txtTourGuide.Text;
+                hrm.Tours.InsertOnSubmit(tr);
                 //lưu
                 hrm.SubmitChanges();
                 //hiển thị lại dữ liệu
@@ -216,11 +216,11 @@ namespace Project_1
                 if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //tìm tour du lịch có mã như trên form
-                    var emp = hrm.Tours.FirstOrDefault(x => x.TourId == txtId.Text);
-                    if (emp != null)
+                    var tr = hrm.Tours.FirstOrDefault(x => x.TourId == txtId.Text);
+                    if (tr != null)
                     {
                         //xóa dữ liệu
-                        hrm.Tours.DeleteOnSubmit(emp);
+                        hrm.Tours.DeleteOnSubmit(tr);
                         //lưu
                         hrm.SubmitChanges();
                         //hiển thị lại dữ liệu

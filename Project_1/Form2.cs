@@ -23,18 +23,18 @@ namespace Project_1
         private void frmSearch_Load(object sender, EventArgs e)
         {
             //lấy thông tin tour du lịch
-            var departments = from dep in hrm.Tours
+            var tours = from tr in hrm.Tours
                               select new
                               {
-                                  TourId = dep.TourId,
-                                  TourName = dep.TourName
+                                  TourId = tr.TourId,
+                                  TourName = tr.TourName
                               };
             //Tạo nút gốc
             TreeNode root = new TreeNode("Danh mục Tour du lịch", 0, 0);
             root.Tag = 0;
             //đọc dữ liệu và đưa lên TreeView
 
-            foreach (var dep in departments)
+            foreach (var dep in tours)
             {
                 //tạo nút con
                 TreeNode depnode = new TreeNode(dep.TourName, 1, 1);
@@ -68,24 +68,24 @@ namespace Project_1
             TreeNode node = trvTour.SelectedNode;
             //Tìm và hiển thị kết quả
             //lấy khách hàng theo tour được chọn
-            var employees = from emp in hrm.Customers
-                            where emp.TourId == node.Tag.ToString()
-                            && emp.CusName.Contains(txtName.Text)
+            var customers = from cus in hrm.Customers
+                            where cus.TourId == node.Tag.ToString()
+                            && cus.CusName.Contains(txtName.Text)
                             select new
                             {
-                                Id = emp.CusId,
-                                FullName = emp.CusName,
-                                Birthday = emp.Birthday,
-                                Address = emp.CusAddress,
-                                Email = emp.Email,
-                                Phone = emp.Phone,
-                                Sex = emp.Gender
+                                Id = cus.CusId,
+                                FullName = cus.CusName,
+                                Birthday = cus.Birthday,
+                                Address = cus.CusAddress,
+                                Email = cus.Email,
+                                Phone = cus.Phone,
+                                Sex = cus.Gender
                             };
             //duyệt và hiển thị lên ListView
-            foreach (var emp in employees)
+            foreach (var cus in customers)
             {
-                ListViewItem item = new ListViewItem(new string[] { emp.Id, emp.FullName, emp.Birthday.Value.ToString("dd/MM/yyyy"), emp.Address, emp.Phone, emp.Email });
-                item.ImageIndex = (emp.Sex.Value) ? 2 : 3;
+                ListViewItem item = new ListViewItem(new string[] { cus.Id, cus.FullName, cus.Birthday.Value.ToString("dd/MM/yyyy"), cus.Address, cus.Phone, cus.Email });
+                item.ImageIndex = (cus.Sex.Value) ? 2 : 3;
                 lstCustomer.Items.Add(item);
             }
         }

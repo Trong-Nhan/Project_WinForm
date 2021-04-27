@@ -35,6 +35,7 @@ namespace Project_1
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.trvTour = new System.Windows.Forms.TreeView();
             this.imgIcon = new System.Windows.Forms.ImageList(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lstCustomer = new System.Windows.Forms.ListView();
@@ -52,7 +53,7 @@ namespace Project_1
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(278, 1);
+            this.btnSearch.Location = new System.Drawing.Point(546, 67);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 1;
@@ -72,22 +73,23 @@ namespace Project_1
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel2.Controls.Add(this.txtName);
             this.splitContainer1.Panel2.Controls.Add(this.lstCustomer);
-            this.splitContainer1.Size = new System.Drawing.Size(798, 306);
-            this.splitContainer1.SplitterDistance = 197;
+            this.splitContainer1.Size = new System.Drawing.Size(847, 419);
+            this.splitContainer1.SplitterDistance = 196;
             this.splitContainer1.TabIndex = 1;
             // 
             // trvTour
             // 
             this.trvTour.ImageIndex = 0;
             this.trvTour.ImageList = this.imgIcon;
-            this.trvTour.Location = new System.Drawing.Point(3, 3);
+            this.trvTour.Location = new System.Drawing.Point(3, 103);
             this.trvTour.Name = "trvTour";
             this.trvTour.SelectedImageIndex = 0;
-            this.trvTour.Size = new System.Drawing.Size(214, 300);
+            this.trvTour.Size = new System.Drawing.Size(190, 313);
             this.trvTour.TabIndex = 0;
             this.trvTour.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvDepartment_AfterSelect);
             // 
@@ -100,10 +102,19 @@ namespace Project_1
             this.imgIcon.Images.SetKeyName(2, "manager.png");
             this.imgIcon.Images.SetKeyName(3, "woman.png");
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(383, 34);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tìm kiếm thông tin khách hàng";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 6);
+            this.label1.Location = new System.Drawing.Point(13, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 2;
@@ -111,9 +122,9 @@ namespace Project_1
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(133, 3);
+            this.txtName.Location = new System.Drawing.Point(139, 69);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(125, 20);
+            this.txtName.Size = new System.Drawing.Size(183, 20);
             this.txtName.TabIndex = 1;
             // 
             // lstCustomer
@@ -130,9 +141,9 @@ namespace Project_1
             this.columnHeader6});
             this.lstCustomer.HideSelection = false;
             this.lstCustomer.LargeImageList = this.imgIcon;
-            this.lstCustomer.Location = new System.Drawing.Point(3, 29);
+            this.lstCustomer.Location = new System.Drawing.Point(3, 103);
             this.lstCustomer.Name = "lstCustomer";
-            this.lstCustomer.Size = new System.Drawing.Size(591, 274);
+            this.lstCustomer.Size = new System.Drawing.Size(641, 313);
             this.lstCustomer.SmallImageList = this.imgIcon;
             this.lstCustomer.TabIndex = 0;
             this.lstCustomer.UseCompatibleStateImageBehavior = false;
@@ -156,7 +167,7 @@ namespace Project_1
             // columnHeader4
             // 
             this.columnHeader4.Text = "Địa chỉ";
-            this.columnHeader4.Width = 67;
+            this.columnHeader4.Width = 112;
             // 
             // columnHeader5
             // 
@@ -172,10 +183,10 @@ namespace Project_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 306);
+            this.ClientSize = new System.Drawing.Size(847, 419);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmSearch";
-            this.Text = "Tra cứu khách hàng";
+            this.Text = "Ứng dụng quản lý khách đi du lịch";
             this.Load += new System.EventHandler(this.frmSearch_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -201,5 +212,6 @@ namespace Project_1
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ImageList imgIcon;
+        private System.Windows.Forms.Label label2;
     }
 }

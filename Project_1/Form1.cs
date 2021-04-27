@@ -75,9 +75,9 @@ namespace Project_1
             if (edit)
             {
                 //tìm khách hàng cần sửa có mã như trên form
-                var emp = hrm.Customers.FirstOrDefault(x => x.CusId == txtId.Text);
+                var cus = hrm.Customers.FirstOrDefault(x => x.CusId == txtId.Text);
                 //nếu tìm thấy
-                if (emp != null)
+                if (cus != null)
                 {
                     // Validate tất cả các trường nhập
                     ValidateRequiredField(errField, txtId);
@@ -95,13 +95,13 @@ namespace Project_1
                         }
                     }
                     //gán lại thông tin cho khách hàng
-                    emp.CusName = txtName.Text;
-                    emp.Birthday = txtBirthday.Value;
-                    emp.Gender = chkSex.Checked;
-                    emp.Phone = txtPhone.Text;
-                    emp.CusAddress = txtAddress.Text;
-                    emp.Email = txtEmail.Text;
-                    emp.TourId = cboTour.SelectedValue.ToString();
+                    cus.CusName = txtName.Text;
+                    cus.Birthday = txtBirthday.Value;
+                    cus.Gender = chkSex.Checked;
+                    cus.Phone = txtPhone.Text;
+                    cus.CusAddress = txtAddress.Text;
+                    cus.Email = txtEmail.Text;
+                    cus.TourId = cboTour.SelectedValue.ToString();
                     //lưu
                     hrm.SubmitChanges();
                     //hiển thị lại dữ liệu
@@ -119,7 +119,7 @@ namespace Project_1
             else
             {
                 //tạo mới khách hàng
-                var emp = new Customer();
+                var cus = new Customer();
                 // Validate tất cả các trường nhập
                 ValidateRequiredField(errField, txtId);
                 ValidateRequiredField(errField, txtName);
@@ -136,15 +136,15 @@ namespace Project_1
                     }
                 }
                 //gán giá trị
-                emp.CusId = txtId.Text;
-                emp.CusName = txtName.Text;
-                emp.Birthday = txtBirthday.Value;
-                emp.Gender = chkSex.Checked;
-                emp.Phone = txtPhone.Text;
-                emp.CusAddress = txtAddress.Text;
-                emp.Email = txtEmail.Text;
-                emp.TourId = cboTour.SelectedValue.ToString();
-                hrm.Customers.InsertOnSubmit(emp);
+                cus.CusId = txtId.Text;
+                cus.CusName = txtName.Text;
+                cus.Birthday = txtBirthday.Value;
+                cus.Gender = chkSex.Checked;
+                cus.Phone = txtPhone.Text;
+                cus.CusAddress = txtAddress.Text;
+                cus.Email = txtEmail.Text;
+                cus.TourId = cboTour.SelectedValue.ToString();
+                hrm.Customers.InsertOnSubmit(cus);
                 //lưu
                 hrm.SubmitChanges();
                 //hiển thị lại dữ liệu
@@ -221,20 +221,20 @@ namespace Project_1
         private void DisplayCustomer()
         {
             //truy vấn lấy các thông tin cần thiết trong bảng Customers
-            var employess = from emp in hrm.Customers
+            var customers = from cus in hrm.Customers
                             select new
                             {
-                                Ma_khach_hang = emp.CusId,
-                                Ten = emp.CusName,
-                                Gioi_tinh = emp.Gender,
-                                Ngay_sinh = emp.Birthday,
-                                Dia_chi = emp.CusAddress,
-                                Email = emp.Email,
-                                Dien_thoai = emp.Phone,
-                                Ma_tour = emp.TourId
+                                Ma_khach_hang = cus.CusId,
+                                Ten = cus.CusName,
+                                Gioi_tinh = cus.Gender,
+                                Ngay_sinh = cus.Birthday,
+                                Dia_chi = cus.CusAddress,
+                                Email = cus.Email,
+                                Dien_thoai = cus.Phone,
+                                Ma_tour = cus.TourId
                             };
             //hiển thị lên lưới
-            dgvCustomer.DataSource = employess;
+            dgvCustomer.DataSource = customers;
             DisplayCustomerDetail();
         }
         //phương thức hiển thị chi tiết khách hàng của dòng hiện tại trên lưới lên form
@@ -296,7 +296,7 @@ namespace Project_1
             else
             {
                 // Hiển thị lỗi
-                errField.SetError(txt, "Số điện thoại phải là dãy 10 chữ số liên tiếp");
+                errField.SetError(txt, "Số điện thoại phải là dãy 10 chữ số liên tiếp.");
             }
         }
 

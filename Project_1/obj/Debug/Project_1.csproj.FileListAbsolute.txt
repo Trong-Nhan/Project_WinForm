@@ -36,3 +36,16 @@ C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.exe
 C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.pdb
 C:\Users\ADMIN\Desktop\Project_WinForm\Project_1\obj\Debug\Project_1.frmLogin.resources
 D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.frmLogin.resources
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\bin\Debug\Project_1.exe.config
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\bin\Debug\Project_1.exe
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\bin\Debug\Project_1.pdb
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.csprojAssemblyReference.cache
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.frmCustomer.resources
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.frmSearch.resources
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.frmTour.resources
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.frmLogin.resources
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.Properties.Resources.resources
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.csproj.GenerateResource.cache
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.exe
+C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.pdb
