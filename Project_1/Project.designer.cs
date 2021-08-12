@@ -42,7 +42,7 @@ namespace Project_1
     #endregion
 		
 		public ProjectDataContext() : 
-				base(global::Project_1.Properties.Settings.Default.ProjectConnectionString1, mappingSource)
+				base(global::Project_1.Properties.Settings.Default.ProjectConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
