@@ -222,6 +222,7 @@ namespace Project_1
         {
             //truy vấn lấy các thông tin cần thiết trong bảng Customers
             var customers = from cus in hrm.Customers
+                            join tr in hrm.Tours on cus.TourId equals tr.TourId
                             select new
                             {
                                 Ma_khach_hang = cus.CusId,
@@ -231,7 +232,8 @@ namespace Project_1
                                 Dia_chi = cus.CusAddress,
                                 Email = cus.Email,
                                 Dien_thoai = cus.Phone,
-                                Ma_tour = cus.TourId
+                                Ma_tour = cus.TourId,
+                                Ten_Tour = tr.TourName
                             };
             //hiển thị lên lưới
             dgvCustomer.DataSource = customers;
