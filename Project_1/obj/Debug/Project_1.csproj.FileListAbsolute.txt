@@ -48,4 +48,4 @@ C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.cs
 C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.exe
 C:\Users\ADMIN\Documents\GitHub\Project_WinForm\Project_1\obj\Debug\Project_1.pdb
-D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.csprojAssemblyReference.cache
+D:\GITHUB\Project-WinForm\Project_1\obj\Debug\Project_1.csproj.AssemblyReference.cache

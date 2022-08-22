@@ -72,6 +72,9 @@
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Project.cs">
+      <DependentUpon>Project.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Project.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
