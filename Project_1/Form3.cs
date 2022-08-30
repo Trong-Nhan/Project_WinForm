@@ -47,6 +47,9 @@ namespace Project_1
                         };
             //hiển thị lên lưới
             dgvTour.DataSource = tours;
+            this.dgvTour.Columns["Ma_phuong_tien_di_chuyen"].Visible = false;
+            this.dgvTour.Columns["Ma_loai_tour"].Visible = false;
+            this.dgvTour.Columns["Ma_huong_dan_vien"].Visible = false;
             DisplayTourDetail();
         }
         //phương thức hiển thị chi tiết tour du lịch của dòng hiện tại trên lưới lên form

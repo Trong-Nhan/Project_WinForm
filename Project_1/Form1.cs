@@ -260,7 +260,7 @@ namespace Project_1
                             join add in hrm.CusAddresses on cus.CusAddressId equals add.Id
                             select new
                             {
-                                Ma_khach_hang = cus.CusId,
+                                Ma_khach_hang = cus.CusId,                                
                                 Ten = cus.CusName,
                                 Ma_gioi_tinh = cus.GenderId,
                                 Ngay_sinh = cus.Birthday,
@@ -274,6 +274,9 @@ namespace Project_1
                             };
             //hiển thị lên lưới
             dgvCustomer.DataSource = customers;
+            this.dgvCustomer.Columns["Ma_gioi_tinh"].Visible = false;
+            this.dgvCustomer.Columns["Ma_dia_chi"].Visible = false;
+            this.dgvCustomer.Columns["Ma_tour"].Visible = false;
             DisplayCustomerDetail();
         }
         //phương thức hiển thị chi tiết khách hàng của dòng hiện tại trên lưới lên form
