@@ -1,0 +1,8 @@
+D:\GITHUB\Project-WinForm\Project_1\obj\Release\Project_1.csproj.AssemblyReference.cache
+D:\GITHUB\Project-WinForm\Project_1\obj\Release\Project_1.frmCustomer.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Release\Project_1.frmSearch.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Release\Project_1.frmTour.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Release\Project_1.frmLogin.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Release\Project_1.Properties.Resources.resources
+D:\GITHUB\Project-WinForm\Project_1\obj\Release\Project_1.csproj.GenerateResource.cache
+D:\GITHUB\Project-WinForm\Project_1\obj\Release\Project_1.csproj.CoreCompileInputs.cache

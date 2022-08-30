@@ -1,16 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Project" Class="ProjectDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-RTQ2N2T;Initial Catalog=Project;Integrated Security=True" SettingsObjectName="Project_1.Properties.Settings" SettingsPropertyName="ProjectConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CusAddress" Member="CusAddresses">
+    <Type Name="CusAddress">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="CusAddress_Customer" Member="Customers" ThisKey="Id" OtherKey="CusAddressId" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vehicle" Member="Vehicles">
+    <Type Name="Vehicle">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Vehicle_Tour" Member="Tours" ThisKey="Id" OtherKey="VehicleId" Type="Tour" />
+    </Type>
+  </Table>
   <Table Name="dbo.Customer" Member="Customers">
     <Type Name="Customer">
       <Column Name="CusId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CusName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GenderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CusAddress" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CusAddressId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="TourId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="CusAddress_Customer" Member="CusAddress" ThisKey="CusAddressId" OtherKey="Id" Type="CusAddress" IsForeignKey="true" />
+      <Association Name="Gender_Customer" Member="Gender" ThisKey="GenderId" OtherKey="Id" Type="Gender" IsForeignKey="true" />
       <Association Name="Tour_Customer" Member="Tour" ThisKey="TourId" OtherKey="TourId" Type="Tour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gender" Member="Genders">
+    <Type Name="Gender">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Gender_Customer" Member="Customers" ThisKey="Id" OtherKey="GenderId" Type="Customer" />
     </Type>
   </Table>
   <Table Name="dbo.LoginUser" Member="LoginUsers">
@@ -28,10 +51,27 @@
       <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Describle" Type="System.String" DbType="NVarChar(1500)" CanBeNull="true" />
       <Column Name="TourTime" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Vehicle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TourType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TourGuide" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VehicleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TourTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TourGuideId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Tour_Customer" Member="Customers" ThisKey="TourId" OtherKey="TourId" Type="Customer" />
+      <Association Name="Vehicle_Tour" Member="Vehicle" ThisKey="VehicleId" OtherKey="Id" Type="Vehicle" IsForeignKey="true" />
+      <Association Name="TourGuide_Tour" Member="TourGuide" ThisKey="TourGuideId" OtherKey="Id" Type="TourGuide" IsForeignKey="true" />
+      <Association Name="TourType_Tour" Member="TourType" ThisKey="TourTypeId" OtherKey="Id" Type="TourType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TourGuide" Member="TourGuides">
+    <Type Name="TourGuide">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TourGuide_Tour" Member="Tours" ThisKey="Id" OtherKey="TourGuideId" Type="Tour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TourType" Member="TourTypes">
+    <Type Name="TourType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TourType_Tour" Member="Tours" ThisKey="Id" OtherKey="TourTypeId" Type="Tour" />
     </Type>
   </Table>
 </Database>

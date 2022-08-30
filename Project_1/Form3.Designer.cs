@@ -47,14 +47,14 @@ namespace Project_1
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtDestinations = new System.Windows.Forms.TextBox();
-            this.txtVehicle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTourType = new System.Windows.Forms.TextBox();
-            this.txtTourGuide = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.errField = new System.Windows.Forms.ErrorProvider(this.components);
             this.label10 = new System.Windows.Forms.Label();
+            this.cboVehicle = new System.Windows.Forms.ComboBox();
+            this.cboTourType = new System.Windows.Forms.ComboBox();
+            this.cboTourGuide = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errField)).BeginInit();
             this.SuspendLayout();
@@ -118,7 +118,7 @@ namespace Project_1
             this.dgvTour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTour.Location = new System.Drawing.Point(3, 285);
             this.dgvTour.Name = "dgvTour";
-            this.dgvTour.Size = new System.Drawing.Size(964, 152);
+            this.dgvTour.Size = new System.Drawing.Size(964, 183);
             this.dgvTour.TabIndex = 38;
             this.dgvTour.Click += new System.EventHandler(this.dgvTour_Click);
             // 
@@ -206,13 +206,6 @@ namespace Project_1
             this.txtDestinations.Size = new System.Drawing.Size(338, 20);
             this.txtDestinations.TabIndex = 46;
             // 
-            // txtVehicle
-            // 
-            this.txtVehicle.Location = new System.Drawing.Point(145, 214);
-            this.txtVehicle.Name = "txtVehicle";
-            this.txtVehicle.Size = new System.Drawing.Size(153, 20);
-            this.txtVehicle.TabIndex = 47;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -221,20 +214,6 @@ namespace Project_1
             this.label3.Size = new System.Drawing.Size(113, 13);
             this.label3.TabIndex = 48;
             this.label3.Text = "Phương tiện di chuyển";
-            // 
-            // txtTourType
-            // 
-            this.txtTourType.Location = new System.Drawing.Point(438, 214);
-            this.txtTourType.Name = "txtTourType";
-            this.txtTourType.Size = new System.Drawing.Size(125, 20);
-            this.txtTourType.TabIndex = 49;
-            // 
-            // txtTourGuide
-            // 
-            this.txtTourGuide.Location = new System.Drawing.Point(729, 214);
-            this.txtTourGuide.Name = "txtTourGuide";
-            this.txtTourGuide.Size = new System.Drawing.Size(218, 20);
-            this.txtTourGuide.TabIndex = 50;
             // 
             // label6
             // 
@@ -268,18 +247,45 @@ namespace Project_1
             this.label10.TabIndex = 53;
             this.label10.Text = "Quản lý Tour du lịch";
             // 
+            // cboVehicle
+            // 
+            this.cboVehicle.FormattingEnabled = true;
+            this.cboVehicle.Location = new System.Drawing.Point(136, 214);
+            this.cboVehicle.Name = "cboVehicle";
+            this.cboVehicle.Size = new System.Drawing.Size(142, 21);
+            this.cboVehicle.TabIndex = 54;
+            this.cboVehicle.Click += new System.EventHandler(this.cboVehicle_Click);
+            // 
+            // cboTourType
+            // 
+            this.cboTourType.FormattingEnabled = true;
+            this.cboTourType.Location = new System.Drawing.Point(428, 214);
+            this.cboTourType.Name = "cboTourType";
+            this.cboTourType.Size = new System.Drawing.Size(118, 21);
+            this.cboTourType.TabIndex = 55;
+            this.cboTourType.Click += new System.EventHandler(this.cboTourType_Click);
+            // 
+            // cboTourGuide
+            // 
+            this.cboTourGuide.FormattingEnabled = true;
+            this.cboTourGuide.Location = new System.Drawing.Point(716, 214);
+            this.cboTourGuide.Name = "cboTourGuide";
+            this.cboTourGuide.Size = new System.Drawing.Size(169, 21);
+            this.cboTourGuide.TabIndex = 56;
+            this.cboTourGuide.Click += new System.EventHandler(this.cboTourGuide_Click);
+            // 
             // frmTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 442);
+            this.ClientSize = new System.Drawing.Size(968, 471);
+            this.Controls.Add(this.cboTourGuide);
+            this.Controls.Add(this.cboTourType);
+            this.Controls.Add(this.cboVehicle);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtTourGuide);
-            this.Controls.Add(this.txtTourType);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtVehicle);
             this.Controls.Add(this.txtDestinations);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -324,14 +330,14 @@ namespace Project_1
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtDestinations;
-        private System.Windows.Forms.TextBox txtVehicle;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtDescrible;
-        private System.Windows.Forms.TextBox txtTourType;
-        private System.Windows.Forms.TextBox txtTourGuide;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ErrorProvider errField;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cboTourGuide;
+        private System.Windows.Forms.ComboBox cboTourType;
+        private System.Windows.Forms.ComboBox cboVehicle;
     }
 }

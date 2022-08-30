@@ -30,6 +30,10 @@ namespace Project_1
             DisplayCustomer();
             //Hiển thị tour du lịch lên combobox
             DisplayTour();
+            //Hiển thị địa chỉ lên combobox
+            DisplayAddress();
+            //Hiển thị giới tính lên combobox
+            DisplayGender();
 
         }
         // Validate trường nhập được yêu cầu. Trả về true khi trường nhập hợp lệ
@@ -83,7 +87,6 @@ namespace Project_1
                     ValidateRequiredField(errField, txtId);
                     ValidateRequiredField(errField, txtName);
                     ValidatePhoneNumber(errField, txtPhone);
-                    ValidateRequiredField(errField, txtAddress);
                     ValidateEmail(errField, txtEmail);
                     // Hiển thị khi bất kỳ trường nhập nào lỗi
                     foreach (Control ctl in Controls)
@@ -97,9 +100,9 @@ namespace Project_1
                     //gán lại thông tin cho khách hàng
                     cus.CusName = txtName.Text;
                     cus.Birthday = txtBirthday.Value;
-                    cus.Gender = chkSex.Checked;
+                    cus.GenderId = int.Parse(cboGender.SelectedValue.ToString());
                     cus.Phone = txtPhone.Text;
-                    cus.CusAddress = txtAddress.Text;
+                    cus.CusAddressId = int.Parse(cboAddress.SelectedValue.ToString());
                     cus.Email = txtEmail.Text;
                     cus.TourId = cboTour.SelectedValue.ToString();
                     //lưu
@@ -124,7 +127,6 @@ namespace Project_1
                 ValidateRequiredField(errField, txtId);
                 ValidateRequiredField(errField, txtName);
                 ValidatePhoneNumber(errField, txtPhone);
-                ValidateRequiredField(errField, txtAddress);
                 ValidateEmail(errField, txtEmail);
                 // Hiển thị khi bất kỳ trường nhập nào lỗi
                 foreach (Control ctl in Controls)
@@ -139,9 +141,9 @@ namespace Project_1
                 cus.CusId = txtId.Text;
                 cus.CusName = txtName.Text;
                 cus.Birthday = txtBirthday.Value;
-                cus.Gender = chkSex.Checked;
+                cus.GenderId = int.Parse(cboGender.SelectedValue.ToString());
                 cus.Phone = txtPhone.Text;
-                cus.CusAddress = txtAddress.Text;
+                cus.CusAddressId = int.Parse(cboAddress.SelectedValue.ToString());
                 cus.Email = txtEmail.Text;
                 cus.TourId = cboTour.SelectedValue.ToString();
                 hrm.Customers.InsertOnSubmit(cus);
@@ -155,13 +157,13 @@ namespace Project_1
         private void btnNew_Click(object sender, EventArgs e)
         {
             //xóa trắng dữ liệu trên form
-            txtId.Text = txtName.Text = txtPhone.Text = txtAddress.Text = txtEmail.Text = "";
+            txtId.Text = txtName.Text = txtPhone.Text = txtEmail.Text = "";
             txtId.Focus();
             edit = false;
             txtId.ReadOnly = false;
         }
 
-        private void dgvEmployee_Click(object sender, EventArgs e)
+        private void dgvCustomer_Click(object sender, EventArgs e)
         {
             //hiển thị chi tiết khách hàng khi kích vào lưới
             DisplayCustomerDetail();
@@ -207,32 +209,67 @@ namespace Project_1
         private void DisplayTour()
         {
             //lấy danh sách tour
-            var departments = from dep in hrm.Tours
-                              select new
-                              {
-                                  TourId = dep.TourId,
-                                  TourName = dep.TourName
-                              };
-            cboTour.DataSource = departments;
+            var tours = from tr in hrm.Tours
+                        select new
+                        {
+                            TourId = tr.TourId,
+                            TourName = tr.TourName
+                        };
+            cboTour.DataSource = tours;
             cboTour.DisplayMember = "TourName";
             cboTour.ValueMember = "TourId";
         }
+
+        //Phương thức hiển thị gender lên combo box
+        private void DisplayGender()
+        {
+            //lấy danh sách gender
+            var genders = from gen in hrm.Genders
+                          select new
+                          {
+                              GenderId = gen.Id,
+                              GenderName = gen.Name
+                          };
+            cboGender.DataSource = genders;
+            cboGender.DisplayMember = "GenderName";
+            cboGender.ValueMember = "GenderId";
+        }
+
+        //Phương thức hiển thị address lên combo box
+        private void DisplayAddress()
+        {
+            //lấy danh sách tour
+            var addresses = from add in hrm.CusAddresses
+                            select new
+                            {
+                                CusAddressesId = add.Id,
+                                CusAddressesName = add.Name
+                            };
+            cboAddress.DataSource = addresses;
+            cboAddress.DisplayMember = "CusAddressesName";
+            cboAddress.ValueMember = "CusAddressesId";
+        }
+
         //Phương thức hiển thị dữ liệu lên lưới
         private void DisplayCustomer()
         {
             //truy vấn lấy các thông tin cần thiết trong bảng Customers
             var customers = from cus in hrm.Customers
                             join tr in hrm.Tours on cus.TourId equals tr.TourId
+                            join gen in hrm.Genders on cus.GenderId equals gen.Id
+                            join add in hrm.CusAddresses on cus.CusAddressId equals add.Id
                             select new
                             {
                                 Ma_khach_hang = cus.CusId,
                                 Ten = cus.CusName,
-                                Gioi_tinh = cus.Gender,
+                                Ma_gioi_tinh = cus.GenderId,
                                 Ngay_sinh = cus.Birthday,
-                                Dia_chi = cus.CusAddress,
+                                Ma_dia_chi = cus.CusAddressId,
                                 Email = cus.Email,
                                 Dien_thoai = cus.Phone,
                                 Ma_tour = cus.TourId,
+                                Dia_chi = add.Name,
+                                Gioi_tinh = gen.Name,
                                 Ten_Tour = tr.TourName
                             };
             //hiển thị lên lưới
@@ -248,9 +285,9 @@ namespace Project_1
                 DataGridViewRow row = dgvCustomer.CurrentRow;
                 txtId.Text = row.Cells[0].Value.ToString();
                 txtName.Text = row.Cells[1].Value.ToString();
-                chkSex.Checked = (bool)row.Cells[2].Value;
+                cboGender.SelectedValue = int.Parse(row.Cells[2].Value.ToString());
                 txtBirthday.Value = (DateTime)row.Cells[3].Value;
-                txtAddress.Text = row.Cells[4].Value.ToString();
+                cboAddress.SelectedValue = int.Parse(row.Cells[4].Value.ToString());
                 txtEmail.Text = row.Cells[5].Value.ToString();
                 txtPhone.Text = row.Cells[6].Value.ToString();
                 cboTour.SelectedValue = row.Cells[7].Value.ToString();
@@ -276,6 +313,18 @@ namespace Project_1
         {
             //Hiển thị tour du lịch lên combobox
             DisplayTour();
+        }
+
+        private void cboGender_Click(object sender, EventArgs e)
+        {
+            //Hiển thị gender lên combobox
+            DisplayGender();
+        }
+
+        private void cboCusAddress_Click(object sender, EventArgs e)
+        {
+            //Hiển thị address lên combobox
+            DisplayAddress();
         }
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)

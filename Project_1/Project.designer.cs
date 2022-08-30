@@ -30,15 +30,30 @@ namespace Project_1
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertCusAddress(CusAddress instance);
+    partial void UpdateCusAddress(CusAddress instance);
+    partial void DeleteCusAddress(CusAddress instance);
+    partial void InsertVehicle(Vehicle instance);
+    partial void UpdateVehicle(Vehicle instance);
+    partial void DeleteVehicle(Vehicle instance);
     partial void InsertCustomer(Customer instance);
     partial void UpdateCustomer(Customer instance);
     partial void DeleteCustomer(Customer instance);
+    partial void InsertGender(Gender instance);
+    partial void UpdateGender(Gender instance);
+    partial void DeleteGender(Gender instance);
     partial void InsertLoginUser(LoginUser instance);
     partial void UpdateLoginUser(LoginUser instance);
     partial void DeleteLoginUser(LoginUser instance);
     partial void InsertTour(Tour instance);
     partial void UpdateTour(Tour instance);
     partial void DeleteTour(Tour instance);
+    partial void InsertTourGuide(TourGuide instance);
+    partial void UpdateTourGuide(TourGuide instance);
+    partial void DeleteTourGuide(TourGuide instance);
+    partial void InsertTourType(TourType instance);
+    partial void UpdateTourType(TourType instance);
+    partial void DeleteTourType(TourType instance);
     #endregion
 		
 		public ProjectDataContext() : 
@@ -71,11 +86,35 @@ namespace Project_1
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<CusAddress> CusAddresses
+		{
+			get
+			{
+				return this.GetTable<CusAddress>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Vehicle> Vehicles
+		{
+			get
+			{
+				return this.GetTable<Vehicle>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Customer> Customers
 		{
 			get
 			{
 				return this.GetTable<Customer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Gender> Genders
+		{
+			get
+			{
+				return this.GetTable<Gender>();
 			}
 		}
 		
@@ -94,6 +133,250 @@ namespace Project_1
 				return this.GetTable<Tour>();
 			}
 		}
+		
+		public System.Data.Linq.Table<TourGuide> TourGuides
+		{
+			get
+			{
+				return this.GetTable<TourGuide>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TourType> TourTypes
+		{
+			get
+			{
+				return this.GetTable<TourType>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CusAddress")]
+	public partial class CusAddress : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private EntitySet<Customer> _Customers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public CusAddress()
+		{
+			this._Customers = new EntitySet<Customer>(new Action<Customer>(this.attach_Customers), new Action<Customer>(this.detach_Customers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CusAddress_Customer", Storage="_Customers", ThisKey="Id", OtherKey="CusAddressId")]
+		public EntitySet<Customer> Customers
+		{
+			get
+			{
+				return this._Customers;
+			}
+			set
+			{
+				this._Customers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Customers(Customer entity)
+		{
+			this.SendPropertyChanging();
+			entity.CusAddress = this;
+		}
+		
+		private void detach_Customers(Customer entity)
+		{
+			this.SendPropertyChanging();
+			entity.CusAddress = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vehicle")]
+	public partial class Vehicle : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private EntitySet<Tour> _Tours;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public Vehicle()
+		{
+			this._Tours = new EntitySet<Tour>(new Action<Tour>(this.attach_Tours), new Action<Tour>(this.detach_Tours));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Tour", Storage="_Tours", ThisKey="Id", OtherKey="VehicleId")]
+		public EntitySet<Tour> Tours
+		{
+			get
+			{
+				return this._Tours;
+			}
+			set
+			{
+				this._Tours.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tours(Tour entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vehicle = this;
+		}
+		
+		private void detach_Tours(Tour entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vehicle = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customer")]
@@ -106,17 +389,21 @@ namespace Project_1
 		
 		private string _CusName;
 		
-		private System.Nullable<bool> _Gender;
+		private System.Nullable<int> _GenderId;
 		
 		private System.Nullable<System.DateTime> _Birthday;
 		
-		private string _CusAddress;
+		private System.Nullable<int> _CusAddressId;
 		
 		private string _Phone;
 		
 		private string _Email;
 		
 		private string _TourId;
+		
+		private EntityRef<CusAddress> _CusAddress;
+		
+		private EntityRef<Gender> _Gender;
 		
 		private EntityRef<Tour> _Tour;
 		
@@ -128,12 +415,12 @@ namespace Project_1
     partial void OnCusIdChanged();
     partial void OnCusNameChanging(string value);
     partial void OnCusNameChanged();
-    partial void OnGenderChanging(System.Nullable<bool> value);
-    partial void OnGenderChanged();
+    partial void OnGenderIdChanging(System.Nullable<int> value);
+    partial void OnGenderIdChanged();
     partial void OnBirthdayChanging(System.Nullable<System.DateTime> value);
     partial void OnBirthdayChanged();
-    partial void OnCusAddressChanging(string value);
-    partial void OnCusAddressChanged();
+    partial void OnCusAddressIdChanging(System.Nullable<int> value);
+    partial void OnCusAddressIdChanged();
     partial void OnPhoneChanging(string value);
     partial void OnPhoneChanged();
     partial void OnEmailChanging(string value);
@@ -144,6 +431,8 @@ namespace Project_1
 		
 		public Customer()
 		{
+			this._CusAddress = default(EntityRef<CusAddress>);
+			this._Gender = default(EntityRef<Gender>);
 			this._Tour = default(EntityRef<Tour>);
 			OnCreated();
 		}
@@ -188,22 +477,26 @@ namespace Project_1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="Bit")]
-		public System.Nullable<bool> Gender
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GenderId", DbType="Int")]
+		public System.Nullable<int> GenderId
 		{
 			get
 			{
-				return this._Gender;
+				return this._GenderId;
 			}
 			set
 			{
-				if ((this._Gender != value))
+				if ((this._GenderId != value))
 				{
-					this.OnGenderChanging(value);
+					if (this._Gender.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGenderIdChanging(value);
 					this.SendPropertyChanging();
-					this._Gender = value;
-					this.SendPropertyChanged("Gender");
-					this.OnGenderChanged();
+					this._GenderId = value;
+					this.SendPropertyChanged("GenderId");
+					this.OnGenderIdChanged();
 				}
 			}
 		}
@@ -228,22 +521,26 @@ namespace Project_1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CusAddress", DbType="NVarChar(100)")]
-		public string CusAddress
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CusAddressId", DbType="Int")]
+		public System.Nullable<int> CusAddressId
 		{
 			get
 			{
-				return this._CusAddress;
+				return this._CusAddressId;
 			}
 			set
 			{
-				if ((this._CusAddress != value))
+				if ((this._CusAddressId != value))
 				{
-					this.OnCusAddressChanging(value);
+					if (this._CusAddress.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCusAddressIdChanging(value);
 					this.SendPropertyChanging();
-					this._CusAddress = value;
-					this.SendPropertyChanged("CusAddress");
-					this.OnCusAddressChanged();
+					this._CusAddressId = value;
+					this.SendPropertyChanged("CusAddressId");
+					this.OnCusAddressIdChanged();
 				}
 			}
 		}
@@ -312,6 +609,74 @@ namespace Project_1
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CusAddress_Customer", Storage="_CusAddress", ThisKey="CusAddressId", OtherKey="Id", IsForeignKey=true)]
+		public CusAddress CusAddress
+		{
+			get
+			{
+				return this._CusAddress.Entity;
+			}
+			set
+			{
+				CusAddress previousValue = this._CusAddress.Entity;
+				if (((previousValue != value) 
+							|| (this._CusAddress.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CusAddress.Entity = null;
+						previousValue.Customers.Remove(this);
+					}
+					this._CusAddress.Entity = value;
+					if ((value != null))
+					{
+						value.Customers.Add(this);
+						this._CusAddressId = value.Id;
+					}
+					else
+					{
+						this._CusAddressId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("CusAddress");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gender_Customer", Storage="_Gender", ThisKey="GenderId", OtherKey="Id", IsForeignKey=true)]
+		public Gender Gender
+		{
+			get
+			{
+				return this._Gender.Entity;
+			}
+			set
+			{
+				Gender previousValue = this._Gender.Entity;
+				if (((previousValue != value) 
+							|| (this._Gender.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Gender.Entity = null;
+						previousValue.Customers.Remove(this);
+					}
+					this._Gender.Entity = value;
+					if ((value != null))
+					{
+						value.Customers.Add(this);
+						this._GenderId = value.Id;
+					}
+					else
+					{
+						this._GenderId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Gender");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tour_Customer", Storage="_Tour", ThisKey="TourId", OtherKey="TourId", IsForeignKey=true)]
 		public Tour Tour
 		{
@@ -364,6 +729,120 @@ namespace Project_1
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gender")]
+	public partial class Gender : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private EntitySet<Customer> _Customers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public Gender()
+		{
+			this._Customers = new EntitySet<Customer>(new Action<Customer>(this.attach_Customers), new Action<Customer>(this.detach_Customers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gender_Customer", Storage="_Customers", ThisKey="Id", OtherKey="GenderId")]
+		public EntitySet<Customer> Customers
+		{
+			get
+			{
+				return this._Customers;
+			}
+			set
+			{
+				this._Customers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Customers(Customer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Gender = this;
+		}
+		
+		private void detach_Customers(Customer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Gender = null;
 		}
 	}
 	
@@ -495,13 +974,19 @@ namespace Project_1
 		
 		private string _TourTime;
 		
-		private string _Vehicle;
+		private System.Nullable<int> _VehicleId;
 		
-		private string _TourType;
+		private System.Nullable<int> _TourTypeId;
 		
-		private string _TourGuide;
+		private System.Nullable<int> _TourGuideId;
 		
 		private EntitySet<Customer> _Customers;
+		
+		private EntityRef<Vehicle> _Vehicle;
+		
+		private EntityRef<TourGuide> _TourGuide;
+		
+		private EntityRef<TourType> _TourType;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -519,17 +1004,20 @@ namespace Project_1
     partial void OnDescribleChanged();
     partial void OnTourTimeChanging(string value);
     partial void OnTourTimeChanged();
-    partial void OnVehicleChanging(string value);
-    partial void OnVehicleChanged();
-    partial void OnTourTypeChanging(string value);
-    partial void OnTourTypeChanged();
-    partial void OnTourGuideChanging(string value);
-    partial void OnTourGuideChanged();
+    partial void OnVehicleIdChanging(System.Nullable<int> value);
+    partial void OnVehicleIdChanged();
+    partial void OnTourTypeIdChanging(System.Nullable<int> value);
+    partial void OnTourTypeIdChanged();
+    partial void OnTourGuideIdChanging(System.Nullable<int> value);
+    partial void OnTourGuideIdChanged();
     #endregion
 		
 		public Tour()
 		{
 			this._Customers = new EntitySet<Customer>(new Action<Customer>(this.attach_Customers), new Action<Customer>(this.detach_Customers));
+			this._Vehicle = default(EntityRef<Vehicle>);
+			this._TourGuide = default(EntityRef<TourGuide>);
+			this._TourType = default(EntityRef<TourType>);
 			OnCreated();
 		}
 		
@@ -653,62 +1141,74 @@ namespace Project_1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vehicle", DbType="NVarChar(100)")]
-		public string Vehicle
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleId", DbType="Int")]
+		public System.Nullable<int> VehicleId
 		{
 			get
 			{
-				return this._Vehicle;
+				return this._VehicleId;
 			}
 			set
 			{
-				if ((this._Vehicle != value))
+				if ((this._VehicleId != value))
 				{
-					this.OnVehicleChanging(value);
+					if (this._Vehicle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnVehicleIdChanging(value);
 					this.SendPropertyChanging();
-					this._Vehicle = value;
-					this.SendPropertyChanged("Vehicle");
-					this.OnVehicleChanged();
+					this._VehicleId = value;
+					this.SendPropertyChanged("VehicleId");
+					this.OnVehicleIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TourType", DbType="NVarChar(100)")]
-		public string TourType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TourTypeId", DbType="Int")]
+		public System.Nullable<int> TourTypeId
 		{
 			get
 			{
-				return this._TourType;
+				return this._TourTypeId;
 			}
 			set
 			{
-				if ((this._TourType != value))
+				if ((this._TourTypeId != value))
 				{
-					this.OnTourTypeChanging(value);
+					if (this._TourType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTourTypeIdChanging(value);
 					this.SendPropertyChanging();
-					this._TourType = value;
-					this.SendPropertyChanged("TourType");
-					this.OnTourTypeChanged();
+					this._TourTypeId = value;
+					this.SendPropertyChanged("TourTypeId");
+					this.OnTourTypeIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TourGuide", DbType="NVarChar(100)")]
-		public string TourGuide
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TourGuideId", DbType="Int")]
+		public System.Nullable<int> TourGuideId
 		{
 			get
 			{
-				return this._TourGuide;
+				return this._TourGuideId;
 			}
 			set
 			{
-				if ((this._TourGuide != value))
+				if ((this._TourGuideId != value))
 				{
-					this.OnTourGuideChanging(value);
+					if (this._TourGuide.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTourGuideIdChanging(value);
 					this.SendPropertyChanging();
-					this._TourGuide = value;
-					this.SendPropertyChanged("TourGuide");
-					this.OnTourGuideChanged();
+					this._TourGuideId = value;
+					this.SendPropertyChanged("TourGuideId");
+					this.OnTourGuideIdChanged();
 				}
 			}
 		}
@@ -723,6 +1223,108 @@ namespace Project_1
 			set
 			{
 				this._Customers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Tour", Storage="_Vehicle", ThisKey="VehicleId", OtherKey="Id", IsForeignKey=true)]
+		public Vehicle Vehicle
+		{
+			get
+			{
+				return this._Vehicle.Entity;
+			}
+			set
+			{
+				Vehicle previousValue = this._Vehicle.Entity;
+				if (((previousValue != value) 
+							|| (this._Vehicle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Vehicle.Entity = null;
+						previousValue.Tours.Remove(this);
+					}
+					this._Vehicle.Entity = value;
+					if ((value != null))
+					{
+						value.Tours.Add(this);
+						this._VehicleId = value.Id;
+					}
+					else
+					{
+						this._VehicleId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Vehicle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TourGuide_Tour", Storage="_TourGuide", ThisKey="TourGuideId", OtherKey="Id", IsForeignKey=true)]
+		public TourGuide TourGuide
+		{
+			get
+			{
+				return this._TourGuide.Entity;
+			}
+			set
+			{
+				TourGuide previousValue = this._TourGuide.Entity;
+				if (((previousValue != value) 
+							|| (this._TourGuide.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TourGuide.Entity = null;
+						previousValue.Tours.Remove(this);
+					}
+					this._TourGuide.Entity = value;
+					if ((value != null))
+					{
+						value.Tours.Add(this);
+						this._TourGuideId = value.Id;
+					}
+					else
+					{
+						this._TourGuideId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TourGuide");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TourType_Tour", Storage="_TourType", ThisKey="TourTypeId", OtherKey="Id", IsForeignKey=true)]
+		public TourType TourType
+		{
+			get
+			{
+				return this._TourType.Entity;
+			}
+			set
+			{
+				TourType previousValue = this._TourType.Entity;
+				if (((previousValue != value) 
+							|| (this._TourType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TourType.Entity = null;
+						previousValue.Tours.Remove(this);
+					}
+					this._TourType.Entity = value;
+					if ((value != null))
+					{
+						value.Tours.Add(this);
+						this._TourTypeId = value.Id;
+					}
+					else
+					{
+						this._TourTypeId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TourType");
+				}
 			}
 		}
 		
@@ -756,6 +1358,234 @@ namespace Project_1
 		{
 			this.SendPropertyChanging();
 			entity.Tour = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TourGuide")]
+	public partial class TourGuide : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private EntitySet<Tour> _Tours;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public TourGuide()
+		{
+			this._Tours = new EntitySet<Tour>(new Action<Tour>(this.attach_Tours), new Action<Tour>(this.detach_Tours));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TourGuide_Tour", Storage="_Tours", ThisKey="Id", OtherKey="TourGuideId")]
+		public EntitySet<Tour> Tours
+		{
+			get
+			{
+				return this._Tours;
+			}
+			set
+			{
+				this._Tours.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tours(Tour entity)
+		{
+			this.SendPropertyChanging();
+			entity.TourGuide = this;
+		}
+		
+		private void detach_Tours(Tour entity)
+		{
+			this.SendPropertyChanging();
+			entity.TourGuide = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TourType")]
+	public partial class TourType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private EntitySet<Tour> _Tours;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public TourType()
+		{
+			this._Tours = new EntitySet<Tour>(new Action<Tour>(this.attach_Tours), new Action<Tour>(this.detach_Tours));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TourType_Tour", Storage="_Tours", ThisKey="Id", OtherKey="TourTypeId")]
+		public EntitySet<Tour> Tours
+		{
+			get
+			{
+				return this._Tours;
+			}
+			set
+			{
+				this._Tours.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Tours(Tour entity)
+		{
+			this.SendPropertyChanging();
+			entity.TourType = this;
+		}
+		
+		private void detach_Tours(Tour entity)
+		{
+			this.SendPropertyChanging();
+			entity.TourType = null;
 		}
 	}
 }

@@ -24,11 +24,11 @@ namespace Project_1
         {
             //lấy thông tin tour du lịch
             var tours = from tr in hrm.Tours
-                              select new
-                              {
-                                  TourId = tr.TourId,
-                                  TourName = tr.TourName
-                              };
+                        select new
+                        {
+                            TourId = tr.TourId,
+                            TourName = tr.TourName
+                        };
             //Tạo nút gốc
             TreeNode root = new TreeNode("Danh mục Tour du lịch", 0, 0);
             root.Tag = 0;
@@ -69,6 +69,8 @@ namespace Project_1
             //Tìm và hiển thị kết quả
             //lấy khách hàng theo tour được chọn
             var customers = from cus in hrm.Customers
+                            join gen in hrm.Genders on cus.GenderId equals gen.Id
+                            join add in hrm.CusAddresses on cus.CusAddressId equals add.Id
                             where cus.TourId == node.Tag.ToString()
                             && cus.CusName.Contains(txtName.Text)
                             select new
@@ -76,16 +78,44 @@ namespace Project_1
                                 Id = cus.CusId,
                                 FullName = cus.CusName,
                                 Birthday = cus.Birthday,
-                                Address = cus.CusAddress,
+                                Address = add.Name,
                                 Email = cus.Email,
                                 Phone = cus.Phone,
-                                Sex = cus.Gender
+                                Sex = gen.Name
                             };
             //duyệt và hiển thị lên ListView
             foreach (var cus in customers)
             {
                 ListViewItem item = new ListViewItem(new string[] { cus.Id, cus.FullName, cus.Birthday.Value.ToString("dd/MM/yyyy"), cus.Address, cus.Phone, cus.Email });
-                item.ImageIndex = (cus.Sex.Value) ? 2 : 3;
+                //item.ImageIndex = (cus.Sex.Value) ? 2 : 3;
+
+                //viết dạng if
+                //if (cus.Sex == "Nam")
+                //{
+                //    item.ImageIndex = 2;
+                //}
+                //if (cus.Sex == "Nữ")
+                //{
+                //    item.ImageIndex = 3;
+                //}
+                //if (cus.Sex == "LGBTQ+")
+                //{
+                //    item.ImageIndex = 4;
+                //}
+
+                //viết dạng switch-case
+                switch (cus.Sex)
+                {
+                    case "Nam":
+                        item.ImageIndex = 2;
+                        break;
+                    case "Nữ":
+                        item.ImageIndex = 3;
+                        break;
+                    default:
+                        item.ImageIndex = 4;
+                        break;
+                }
                 lstCustomer.Items.Add(item);
             }
         }

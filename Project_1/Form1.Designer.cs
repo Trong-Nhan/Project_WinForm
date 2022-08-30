@@ -33,10 +33,8 @@ namespace Project_1
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtBirthday = new System.Windows.Forms.DateTimePicker();
-            this.chkSex = new System.Windows.Forms.CheckBox();
             this.cboTour = new System.Windows.Forms.ComboBox();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -56,6 +54,8 @@ namespace Project_1
             this.btnTours = new System.Windows.Forms.Button();
             this.errField = new System.Windows.Forms.ErrorProvider(this.components);
             this.label3 = new System.Windows.Forms.Label();
+            this.cboGender = new System.Windows.Forms.ComboBox();
+            this.cboAddress = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errField)).BeginInit();
             this.SuspendLayout();
@@ -82,13 +82,6 @@ namespace Project_1
             this.txtEmail.TabIndex = 3;
             this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(95, 159);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(232, 20);
-            this.txtAddress.TabIndex = 4;
-            // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(510, 159);
@@ -104,16 +97,6 @@ namespace Project_1
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.Size = new System.Drawing.Size(232, 20);
             this.txtBirthday.TabIndex = 6;
-            // 
-            // chkSex
-            // 
-            this.chkSex.AutoSize = true;
-            this.chkSex.Location = new System.Drawing.Point(806, 118);
-            this.chkSex.Name = "chkSex";
-            this.chkSex.Size = new System.Drawing.Size(48, 17);
-            this.chkSex.TabIndex = 7;
-            this.chkSex.Text = "Nam";
-            this.chkSex.UseVisualStyleBackColor = true;
             // 
             // cboTour
             // 
@@ -181,7 +164,7 @@ namespace Project_1
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.Size = new System.Drawing.Size(862, 259);
             this.dgvCustomer.TabIndex = 14;
-            this.dgvCustomer.Click += new System.EventHandler(this.dgvEmployee_Click);
+            this.dgvCustomer.Click += new System.EventHandler(this.dgvCustomer_Click);
             // 
             // label1
             // 
@@ -222,7 +205,7 @@ namespace Project_1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(755, 119);
+            this.label6.Location = new System.Drawing.Point(740, 118);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 20;
@@ -289,11 +272,31 @@ namespace Project_1
             this.label3.TabIndex = 26;
             this.label3.Text = "Quản lý khách hàng\r\n";
             // 
+            // cboGender
+            // 
+            this.cboGender.FormattingEnabled = true;
+            this.cboGender.Location = new System.Drawing.Point(793, 115);
+            this.cboGender.Name = "cboGender";
+            this.cboGender.Size = new System.Drawing.Size(77, 21);
+            this.cboGender.TabIndex = 27;
+            this.cboGender.Click += new System.EventHandler(this.cboGender_Click);
+            // 
+            // cboAddress
+            // 
+            this.cboAddress.FormattingEnabled = true;
+            this.cboAddress.Location = new System.Drawing.Point(95, 159);
+            this.cboAddress.Name = "cboAddress";
+            this.cboAddress.Size = new System.Drawing.Size(153, 21);
+            this.cboAddress.TabIndex = 28;
+            this.cboAddress.Click += new System.EventHandler(this.cboCusAddress_Click);
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 494);
+            this.Controls.Add(this.cboAddress);
+            this.Controls.Add(this.cboGender);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnTours);
             this.Controls.Add(this.btnSearch);
@@ -312,10 +315,8 @@ namespace Project_1
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.cboTour);
-            this.Controls.Add(this.chkSex);
             this.Controls.Add(this.txtBirthday);
             this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtId);
@@ -334,10 +335,8 @@ namespace Project_1
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.DateTimePicker txtBirthday;
-        private System.Windows.Forms.CheckBox chkSex;
         private System.Windows.Forms.ComboBox cboTour;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnUpdate;
@@ -357,5 +356,7 @@ namespace Project_1
         private System.Windows.Forms.Button btnTours;
         private System.Windows.Forms.ErrorProvider errField;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboAddress;
+        private System.Windows.Forms.ComboBox cboGender;
     }
 }

@@ -101,6 +101,7 @@ namespace Project_1
             this.imgIcon.Images.SetKeyName(1, "group.png");
             this.imgIcon.Images.SetKeyName(2, "manager.png");
             this.imgIcon.Images.SetKeyName(3, "woman.png");
+            this.imgIcon.Images.SetKeyName(4, "lgbt.png");
             // 
             // label2
             // 
@@ -129,9 +130,6 @@ namespace Project_1
             // 
             // lstCustomer
             // 
-            this.lstCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstCustomer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
