@@ -274,6 +274,15 @@ namespace Project_1
                             };
             //hiển thị lên lưới
             dgvCustomer.DataSource = customers;
+            this.dgvCustomer.Columns["Ma_khach_hang"].HeaderText = "Mã khách hàng";
+            this.dgvCustomer.Columns["Ten"].HeaderText = "Tên khách hàng";
+            this.dgvCustomer.Columns["Ngay_sinh"].HeaderText = "Ngày sinh";
+            this.dgvCustomer.Columns["Email"].HeaderText = "Địa chỉ email";
+            this.dgvCustomer.Columns["Dien_thoai"].HeaderText = "Số điện thoại";
+            this.dgvCustomer.Columns["Dia_chi"].HeaderText = "Địa chỉ";
+            this.dgvCustomer.Columns["Gioi_tinh"].HeaderText = "Giới tính";
+            this.dgvCustomer.Columns["Ten_Tour"].HeaderText = "Tên tour";          
+
             this.dgvCustomer.Columns["Ma_gioi_tinh"].Visible = false;
             this.dgvCustomer.Columns["Ma_dia_chi"].Visible = false;
             this.dgvCustomer.Columns["Ma_tour"].Visible = false;

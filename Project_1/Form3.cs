@@ -47,6 +47,16 @@ namespace Project_1
                         };
             //hiển thị lên lưới
             dgvTour.DataSource = tours;
+            this.dgvTour.Columns["Ma_Tour"].HeaderText = "Mã tour";
+            this.dgvTour.Columns["Ten"].HeaderText = "Tên tour";
+            this.dgvTour.Columns["Diem_den"].HeaderText = "Điểm đến";
+            this.dgvTour.Columns["Gia_tien"].HeaderText = "Giá tiền";
+            this.dgvTour.Columns["Mo_ta"].HeaderText = "Mô tả";
+            this.dgvTour.Columns["Thoi_gian"].HeaderText = "Thời gian";
+            this.dgvTour.Columns["Phuong_tien_di_chuyen"].HeaderText = "Phương tiện di chuyển";
+            this.dgvTour.Columns["Loai_Tour"].HeaderText = "Loại tour";
+            this.dgvTour.Columns["Huong_dan_vien"].HeaderText = "Hướng dẫn viên";
+
             this.dgvTour.Columns["Ma_phuong_tien_di_chuyen"].Visible = false;
             this.dgvTour.Columns["Ma_loai_tour"].Visible = false;
             this.dgvTour.Columns["Ma_huong_dan_vien"].Visible = false;
