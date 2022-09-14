@@ -48,18 +48,55 @@ namespace Project_1
             trvTour.ExpandAll();
         }
 
-        private void trvDepartment_AfterSelect(object sender, TreeViewEventArgs e)
+        private void trvTours_AfterSelect(object sender, TreeViewEventArgs e)
         {
             //gọi phương thức tìm
-            SearchCustomer();
+            DisplayCustomer();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //gọi phương thức tìm
-            SearchCustomer();
+            //xóa ListVIew
+            lstCustomer.Items.Clear();
+
+            //Tìm và hiển thị kết quả
+            //lấy khách hàng theo tour được chọn
+            var customers = from cus in hrm.Customers
+                            join gen in hrm.Genders on cus.GenderId equals gen.Id
+                            join add in hrm.CusAddresses on cus.CusAddressId equals add.Id
+                            where  cus.CusName.Contains(txtName.Text)
+                            select new
+                            {
+                                Id = cus.CusId,
+                                FullName = cus.CusName,
+                                Birthday = cus.Birthday,
+                                Address = add.Name,
+                                Email = cus.Email,
+                                Phone = cus.Phone,
+                                Sex = gen.Name
+                            };
+            //duyệt và hiển thị lên ListView
+            foreach (var cus in customers)
+            {
+                ListViewItem item = new ListViewItem(new string[] { cus.Id, cus.FullName, cus.Birthday.Value.ToString("dd/MM/yyyy"), cus.Address, cus.Phone, cus.Email });
+
+                //viết dạng switch-case
+                switch (cus.Sex)
+                {
+                    case "Nam":
+                        item.ImageIndex = 2;
+                        break;
+                    case "Nữ":
+                        item.ImageIndex = 3;
+                        break;
+                    default:
+                        item.ImageIndex = 4;
+                        break;
+                }
+                lstCustomer.Items.Add(item);
+            }
         }
-        public void SearchCustomer()
+        public void DisplayCustomer()
         {
             //xóa ListVIew
             lstCustomer.Items.Clear();

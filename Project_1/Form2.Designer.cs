@@ -91,7 +91,7 @@ namespace Project_1
             this.trvTour.SelectedImageIndex = 0;
             this.trvTour.Size = new System.Drawing.Size(190, 313);
             this.trvTour.TabIndex = 0;
-            this.trvTour.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvDepartment_AfterSelect);
+            this.trvTour.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvTours_AfterSelect);
             // 
             // imgIcon
             // 
